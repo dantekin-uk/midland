@@ -5,32 +5,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 const serviceCategories = [
   {
     title: "Cadastral & Legal Surveying",
-    path: "#",
     items: [
-      "Boundary Definition & Re-establishment",
-      "Land Subdivision & Consolidation",
-      "Title Deed Processing Surveys",
-      "Dispute Resolution Surveys"
+      { name: "Boundary Definition", slug: "boundary-definition" },
+      { name: "Land Subdivisions", slug: "land-subdivisions" },
+      { name: "Title Deed Processing", slug: "title-deed-processing" },
+      { name: "Dispute Resolution", slug: "dispute-resolution" }
     ]
   },
   {
     title: "Engineering & Infrastructure",
-    path: "#",
     items: [
-      "Construction Setting Out",
-      "As-Built Surveys & Documentation",
-      "Earthworks & Volume Computations",
-      "Road, Railway & Pipeline Profiling"
+      { name: "Construction Setting Out", slug: "construction-setting-out" },
+      { name: "As-Built Surveys", slug: "as-built-surveys" },
+      { name: "Earthworks & Volumes", slug: "earthworks-computation" },
+      { name: "Road & Pipeline Profiling", slug: "road-pipeline-profiling" }
     ]
   },
   {
     title: "Topographical & Photogrammetry",
-    path: "#",
     items: [
-      "UAV Drone Mapping & Photogrammetry",
-      "Master Plan Topographical Surveys",
-      "3D Terrain Modeling (DTM/DEM)",
-      "GIS Data Collection & Management"
+      { name: "UAV Photogrammetry", slug: "uav-photogrammetry" },
+      { name: "Topographic Surveys", slug: "topographic-surveys" },
+      { name: "3D Terrain Modeling", slug: "3d-terrain-modeling" },
+      { name: "GIS Data Management", slug: "gis-data-management" }
     ]
   }
 ]
@@ -50,10 +47,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '#' },
-    { name: 'Services', path: '#', hasDropdown: true },
-    { name: 'Projects', path: '#' },
-    { name: 'Contact', path: '#' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services', hasDropdown: true },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Contact', path: '/contact' },
   ]
 
   return (
@@ -112,23 +109,22 @@ const Navbar = () => {
                 <div className="grid grid-cols-3 gap-6">
                   {serviceCategories.map((category) => (
                     <div key={category.title} className="space-y-3 text-left">
-                      <Link 
-                        to={category.path}
+                      <div 
                         className="group/cat flex items-center justify-start gap-2 text-primary font-black text-[13px] uppercase tracking-[0.2em] border-b border-primary/10 pb-2"
                       >
                         <span>{category.title}</span>
                         <svg className="w-3 h-3 opacity-0 -translate-x-2 group-hover/cat:opacity-100 group-hover/cat:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7-7" />
                         </svg>
-                      </Link>
+                      </div>
                       <ul className="space-y-1">
                         {category.items.map((item) => (
-                          <li key={item}>
+                          <li key={item.slug}>
                             <Link 
-                              to={category.path}
-                                      className="text-[13px] font-bold text-steel-grey hover:text-primary hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-all duration-300 block leading-tight"
+                              to={`/services/${item.slug}`}
+                              className="text-[13px] font-bold text-steel-grey hover:text-primary hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-all duration-300 block leading-tight"
                             >
-                              {item}
+                              {item.name}
                             </Link>
                           </li>
                         ))}
@@ -138,7 +134,7 @@ const Navbar = () => {
                 </div>
                 
                 <div className="mt-5 pt-4 border-t border-slate-50 flex items-center justify-center">
-                  <Link to="#" className="text-[11px] font-black text-primary uppercase tracking-[0.2em] hover:underline">
+                  <Link to="/services" className="text-[11px] font-black text-primary uppercase tracking-[0.2em] hover:underline">
                     View All Services →
                   </Link>
                 </div>
@@ -150,7 +146,7 @@ const Navbar = () => {
         {/* Right side actions */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <Link
-            to="#"
+            to="/contact"
             className="hidden md:block px-6 py-2.5 rounded-xl font-bold text-[10px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-105 hover:-translate-y-0.5 active:scale-95"
           >
             Get a Quote
@@ -220,13 +216,13 @@ const Navbar = () => {
                                 className="overflow-hidden space-y-1 pl-4 pb-2"
                               >
                                 {category.items.map((item) => (
-                                  <li key={item}>
+                                  <li key={item.slug}>
                                     <Link 
-                                      to={category.path}
+                                      to={`/services/${item.slug}`}
                                       className="text-xs font-normal text-white/70 hover:text-white transition-colors block py-2 flex items-center gap-2"
                                     >
                                       <span className="w-1 h-1 rounded-full bg-white/30"></span>
-                                      {item}
+                                      {item.name}
                                     </Link>
                                   </li>
                                 ))}
@@ -241,7 +237,7 @@ const Navbar = () => {
               ))}
               <div className="pt-4">
                 <Link
-                  to="#"
+                  to="/contact"
                   className="block w-full py-4 bg-white text-steel-grey text-center rounded-2xl font-bold text-sm tracking-widest shadow-xl"
                 >
                   Get a Quote

@@ -1,279 +1,318 @@
-import { Link } from 'react-router-dom'
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import aboutHero from '../assets/about.jpg';
+import surveying from '../assets/services/survaying.jpg';
+import engineering from '../assets/services/engenearing.jpg';
+import photogrammetry from '../assets/services/photography.jpg';
+import boundary from '../assets/servicesoptions/boundary.jpg';
+import subdivision from '../assets/servicesoptions/subdevision.jpg';
+import titledeed from '../assets/servicesoptions/titledeed.jpg'; 
+import dispute from '../assets/servicesoptions/dispute.jpg';
+import documentation from '../assets/servicesoptions/documentation.jpg';
+import earthworks from '../assets/servicesoptions/earthworks.jpg';
+import roadpipeline from '../assets/servicesoptions/road.jpg';
+import modeling from '../assets/servicesoptions/modeling.jpg';
+import data from '../assets/servicesoptions/data.jpg';
+import topography from '../assets/servicesoptions/topography.jpg';
+
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
 
 const Services = () => {
-  const services = [
-    {
-      title: "Cadastral Surveying",
-      description: "Professional land boundary determination, title surveys, and property registration services with legal compliance.",
-      icon: "🗺️",
-      color: "blue",
-      link: "/services/cadastral",
-      features: [
-        "Land boundary determination",
-        "Title surveys and registration",
-        "Beacon establishment and maintenance",
-        "Subdivision and consolidation surveys",
-        "Legal compliance documentation"
-      ]
-    },
-    {
-      title: "Engineering Surveying",
-      description: "Comprehensive construction layout, deformation monitoring, and infrastructure surveying for engineering projects.",
-      icon: "🏗️",
-      color: "green",
-      link: "/services/engineering",
-      features: [
-        "Construction layout surveys",
-        "Deformation monitoring",
-        "Infrastructure surveying",
-        "As-built surveys",
-        "Setting out and control surveys"
-      ]
-    },
-    {
-      title: "Photogrammetry",
-      description: "Advanced aerial imaging, 3D modeling, and mapping services using cutting-edge photogrammetric techniques.",
-      icon: "📸",
-      color: "purple",
-      link: "/services/photogrammetry",
-      features: [
-        "Aerial imaging and mapping",
-        "3D modeling and visualization",
-        "Drone surveying services",
-        "Orthophoto generation",
-        "Volume calculations"
-      ]
-    }
-  ]
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  const additionalServices = [
-    {
-      title: "Topographic Surveys",
-      description: "Detailed mapping of land features, contours, and terrain characteristics for planning and design purposes.",
-      icon: "⛰️"
-    },
-    {
-      title: "GIS Services",
-      description: "Geographic Information System solutions for spatial data management and analysis.",
-      icon: "🌍"
-    },
-    {
-      title: "Hydrographic Surveys",
-      description: "Underwater mapping and depth measurements for marine and freshwater projects.",
-      icon: "💧"
-    },
-    {
-      title: "Control Surveys",
-      description: "Establishment of precise reference points for large-scale surveying projects.",
-      icon: "🎯"
-    },
-    {
-      title: "Consultation Services",
-      description: "Expert advice and consultation on surveying matters and project requirements.",
-      icon: "💼"
-    },
-    {
-      title: "Expert Witness Services",
-      description: "Professional testimony and expert opinion in legal matters related to surveying.",
-      icon: "⚖️"
+  const scroll = (id, direction) => {
+    const container = document.getElementById(`scroll-${id}`);
+    if (container) {
+      const scrollAmount = 340; // Card width + gap
+      container.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
     }
-  ]
+  };
 
-  const getColorClasses = (color) => {
-    const colors = {
-      blue: {
-        bg: 'bg-primary/10',
-        text: 'text-primary',
-        hover: 'hover:bg-primary',
-        border: 'border-primary'
-      },
-      green: {
-        bg: 'bg-steel-grey/10',
-        text: 'text-steel-grey',
-        hover: 'hover:bg-steel-grey',
-        border: 'border-steel-grey'
-      },
-      purple: {
-        bg: 'bg-primary/10',
-        text: 'text-primary',
-        hover: 'hover:bg-primary',
-        border: 'border-primary'
-      }
+  const serviceCategories = [
+    {
+      id: "cadastral",
+      title: "Cadastral & Legal Surveying",
+      description: "Our cadastral services provide the foundation for secure land ownership. We combine technical expertise with legal knowledge to deliver accurate boundary surveys recognized by the SBK.",
+      options: [
+        { title: "Boundary Definition", desc: "Precise re-establishment of legal property lines.", image: boundary, path: "/services/boundary-definition" },
+        { title: "Land Subdivisions", desc: "Expert partitioning for residential and commercial development.", image: subdivision, path: "/services/land-subdivisions" },
+        { title: "Title Deed Processing", desc: "Technical surveys required for registration and issuance.", image: titledeed, path: "/services/title-deed-processing" },
+        { title: "Dispute Resolution", desc: "Expert witness and technical reporting for boundary cases.", image: dispute, path: "/services/dispute-resolution" }
+      ]
+    },
+    {
+      id: "engineering",
+      title: "Engineering & Infrastructure",
+      description: "Ensuring millimeter-level accuracy across the entire construction lifecycle, from initial site layout to final as-built documentation for major infrastructure projects.",
+      options: [
+        { title: "Construction Setting Out", desc: "Precise marking of design coordinates on site.", image: engineering, path: "/services/construction-setting-out" },
+        { title: "As-Built Surveys", desc: "Verifying final construction against engineering plans.", image: documentation, path: "/services/as-built-surveys" },
+        { title: "Road & Pipeline Profiling", desc: "Longitudinal and cross-section surveys for utilities.", image: roadpipeline, path: "/services/road-pipeline-profiling" },
+        { title: "Earthworks Computation", desc: "Volume calculations for cut-and-fill optimization.", image: earthworks, path: "/services/earthworks-computation" }
+      ]
+    },
+    {
+      id: "mapping",
+      title: "Mapping & GIS Solutions",
+      description: "Utilizing advanced UAV technology and spatial analysis tools to generate high-resolution terrain models and actionable GIS datasets.",
+      options: [
+        { title: "UAV Photogrammetry", desc: "Rapid aerial mapping using state-of-the-art drones.", image: photogrammetry, path: "/services/uav-photogrammetry" },
+        { title: "3D Terrain Modeling", desc: "High-density DTM and DEM for engineering design.", image: modeling, path: "/services/3d-terrain-modeling" },
+        { title: "Topographic Surveys", desc: "Detailed contour mapping and feature identification.", image: topography, path: "/services/topographic-surveys" },
+        { title: "GIS Data Management", desc: "Customized spatial databases for asset tracking.", image: data, path: "/services/gis-data-management" }
+      ]
     }
-    return colors[color] || colors.blue
-  }
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <section className="bg-gradient-to-r from-primary via-primary to-steel-grey text-white py-16">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl opacity-90 max-w-3xl">
-            Comprehensive surveying solutions delivered with precision and expertise
-          </p>
-        </div>
-      </section>
+    <div className="bg-white min-h-screen">
+      {/* 1. Hero Section - Styled like About Page */}
+      <section className="relative pt-24 px-4 lg:px-6">
+        <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
+          <div className="absolute inset-0">
+            <img src={modeling} alt="Our Services" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
+          </div>
+          
+          <div className="relative z-10 h-full flex items-center px-6 lg:px-12">
+            <div className="max-w-3xl space-y-6">
+              <h1 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-primary font-bold">Our Services</h1>
+              <motion.p 
+                initial="hidden" animate="visible" transition={{ delay: 0.2 }} variants={fadeIn}
+                className="text-white text-sm sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md opacity-90"
+              >
+                Delivering highly accurate setting out, earthwork computations, and as-built documentation to keep your complex infrastructure projects on track and on budget.
+              </motion.p>
 
-      {/* Main Services */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16 text-gray-800">
-            Core Services
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const colors = getColorClasses(service.color)
-              return (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                  <div className={`p-8 ${colors.bg} rounded-t-lg`}>
-                    <div className="text-4xl mb-4">{service.icon}</div>
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800">{service.title}</h3>
-                    <p className="text-gray-700 mb-6">{service.description}</p>
-                  </div>
-                  <div className="p-8">
-                    <ul className="space-y-3 mb-6">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                          <span className="text-gray-600">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link 
-                      to={service.link}
-                      className={`inline-block ${colors.text} ${colors.border} border-2 px-6 py-3 rounded-lg font-semibold ${colors.hover} text-white transition-colors w-full text-center`}
-                    >
-                      Learn More
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
+              <motion.div
+                initial="hidden" animate="visible" transition={{ delay: 0.3 }} variants={fadeIn}
+                className="flex justify-start pt-2"
+              >
+                <button 
+                  onClick={() => {
+                    setActiveCategory('all');
+                    setSearchQuery("");
+                    setTimeout(() => {
+                      document.getElementById('engineering')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="group relative bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-xs tracking-widest uppercase hover:opacity-90 transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-primary/25 overflow-hidden"
+                >
+                  <span className="relative z-10">Read More</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                </button>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16 text-gray-800">
-            Additional Services
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-3xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
+      {/* 1.5. Search & Filter Bar - Technical & Modern */}
+      <section className="py-8 bg-white border-b border-slate-50 sticky top-[72px] md:top-[88px] z-30">
+        <div className="w-full max-w-[95%] mx-auto px-4 flex flex-col md:flex-row gap-6 items-center justify-between">
+          {/* Search Input */}
+          <div className="relative w-full md:max-w-md group">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </div>
+            <input 
+              type="text"
+              placeholder="Search for a specific service (e.g. 'Subdivision', 'UAV')..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all font-medium text-xs sm:text-sm text-text-main"
+            />
+          </div>
+
+          {/* Filter Pills */}
+          <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide w-full md:w-auto">
+            {[
+              { id: 'all', label: 'All Services' },
+              { id: 'cadastral', label: 'Cadastral' },
+              { id: 'engineering', label: 'Engineering' },
+              { id: 'mapping', label: 'Mapping & GIS' }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  setActiveCategory(tab.id);
+                  setSearchQuery("");
+                }}
+                className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap ${
+                  activeCategory === tab.id && !searchQuery 
+                    ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' 
+                    : 'bg-slate-50 text-slate-500 hover:bg-slate-100 border border-slate-100'
+                }`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technology & Equipment */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16 text-gray-800">
-            Technology & Equipment
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-800">Advanced Technology</h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                    </svg>
+      {/* 2. Main Content Area */}
+      <section className="py-16 lg:py-24">
+        <div className="w-full max-w-[95%] mx-auto px-4">
+          <AnimatePresence mode="wait">
+            {searchQuery ? (
+              /* Search Results Grid */
+              <motion.div 
+                key="search-results"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+              >
+                {serviceCategories.flatMap(cat => cat.options).filter(opt => 
+                  opt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                  opt.desc.toLowerCase().includes(searchQuery.toLowerCase())
+                ).length > 0 ? (
+                  serviceCategories.flatMap(cat => cat.options).filter(opt => 
+                    opt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                    opt.desc.toLowerCase().includes(searchQuery.toLowerCase())
+                  ).map((option, idx) => (
+                    <div key={idx}>
+                      <Link to={option.path} className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
+                        <div className="h-40 overflow-hidden relative">
+                          <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div className="p-8 space-y-3">
+                          <h4 className="text-base font-black tracking-tight text-text-main group-hover:text-primary transition-colors">{option.title}</h4>
+                          <p className="text-slate-500 text-xs leading-relaxed font-medium">{option.desc}</p>
+                          <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest pt-2">
+                            <span>View Details</span>
+                            <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-full py-20 text-center text-slate-400 font-medium">
+                    No services found matching "{searchQuery}"
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">GPS/GNSS Technology</h4>
-                    <p className="text-gray-600">High-precision satellite positioning systems</p>
+                )}
+              </motion.div>
+            ) : (
+              /* Categorized Sections */
+              <div className="space-y-24 lg:space-y-32">
+                {serviceCategories.filter(cat => activeCategory === 'all' || cat.id === activeCategory).map((category, idx) => (
+              <div key={category.id} id={category.id} className="flex flex-col lg:flex-row gap-12">
+                {/* Left Side: Category Info */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="lg:w-1/3 space-y-4"
+                >
+                  <h2 className="text-2xl lg:text-3xl font-black tracking-tighter leading-tight bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
+                    {category.title}
+                  </h2>
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                    {category.description}
+                  </p>
+                </motion.div>
+
+                {/* Right Side: Horizontal Snap Scroll Container */}
+                <div className="lg:w-2/3 relative group/scroll">
+                  {/* Navigation Arrows */}
+                  <div className="absolute top-[40%] -left-4 -translate-y-1/2 z-20 hidden lg:block opacity-0 group-hover/scroll:opacity-100 transition-opacity">
+                    <button 
+                      onClick={() => scroll(category.id, 'left')}
+                      className="p-2.5 rounded-full bg-white shadow-xl border border-slate-100 text-primary hover:bg-primary hover:text-white transition-all active:scale-90"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
                   </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                    </svg>
+                  <div className="absolute top-[40%] -right-4 -translate-y-1/2 z-20 hidden lg:block opacity-0 group-hover/scroll:opacity-100 transition-opacity">
+                    <button 
+                      onClick={() => scroll(category.id, 'right')}
+                      className="p-2.5 rounded-full bg-white shadow-xl border border-slate-100 text-primary hover:bg-primary hover:text-white transition-all active:scale-90"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" /></svg>
+                    </button>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Drone Technology</h4>
-                    <p className="text-gray-600">UAV-based aerial imaging and mapping</p>
+
+                  <div id={`scroll-${category.id}`} className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none]">
+                    {category.options.map((option, optIdx) => (
+                      <motion.div
+                        key={optIdx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: optIdx * 0.1 }}
+                        className="min-w-[280px] sm:min-w-[320px] snap-center"
+                      >
+                        <Link to={option.path} className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
+                          <div className="h-40 overflow-hidden relative">
+                            <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                          </div>
+                          <div className="p-8 space-y-3">
+                            <h4 className="text-base font-black tracking-tight text-text-main group-hover:text-primary transition-colors">{option.title}</h4>
+                            <p className="text-slate-500 text-xs leading-relaxed font-medium">{option.desc}</p>
+                            <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest pt-2">
+                              <span>View Details</span>
+                              <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
                   </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">3D Laser Scanning</h4>
-                    <p className="text-gray-600">High-density point cloud data collection</p>
+                  {/* Technical scroll hint */}
+                  <div className="absolute -bottom-2 right-0 flex items-center gap-2 text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+                    Scroll to explore <div className="w-12 h-[1px] bg-slate-200"></div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-800">Quality Assurance</h3>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-gray-600 mb-4">
-                  Our commitment to quality is reflected in our rigorous processes and state-of-the-art equipment:
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span className="text-gray-600">Regular equipment calibration and maintenance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span className="text-gray-600">Multiple quality control checks</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span className="text-gray-600">Compliance with international standards</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span className="text-gray-600">Detailed documentation and reporting</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#B05B43] text-white py-16">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Need a Custom Solution?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Contact us to discuss your specific surveying requirements
-          </p>
-          <Link 
-            to="/contact" 
-            className="bg-white text-[#B05B43] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+      {/* 3. CTA Section */}
+      <section className="pb-24">
+        <div className="w-full max-w-[95%] mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-primary to-steel-grey rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden shadow-2xl shadow-primary/20"
           >
-            Get a Quote
-          </Link>
+            <div className="relative z-10">
+              <h2 className="text-2xl lg:text-4xl font-black tracking-tighter leading-tight mb-4 text-white">
+                Need a Custom <span className="text-white/80">Spatial Solution?</span>
+              </h2>
+              <p className="text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
+                From broadacre cadastral surveys to complex drone photogrammetry, our team is ready to support your next major project.
+              </p>
+              <Link 
+                to="/contact" 
+                className="group inline-flex items-center px-6 py-2.5 sm:px-8 sm:py-3.5 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl shadow-black/10"
+              >
+                <span className="text-[10px] sm:text-xs tracking-widest uppercase">Get a Quote</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

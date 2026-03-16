@@ -1,4 +1,21 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import data from '../assets/servicesoptions/data.jpg'; // New image for Contact hero
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const customIcon = new L.divIcon({
+  className: 'custom-marker',
+  html: `<div style="background-color: #B05B43; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 20px rgba(176,91,67,0.4);"></div>`,
+  iconSize: [20, 20],
+  iconAnchor: [10, 10]
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,305 +55,150 @@ const Contact = () => {
     }, 3000)
   }
 
-  const contactInfo = [
-    {
-      icon: "📍",
-      title: "Office Location",
-      details: [
-        "Midland Geosystems Ltd",
-        "ABC Plaza, 2nd Floor",
-        "Moi Avenue, Nairobi",
-        "Kenya"
-      ]
-    },
-    {
-      icon: "📞",
-      title: "Phone Numbers",
-      details: [
-        "+254 20 1234567 (Office)",
-        "+254 712 345678 (Mobile)",
-        "+254 733 890123 (Emergency)"
-      ]
-    },
-    {
-      icon: "✉️",
-      title: "Email Addresses",
-      details: [
-        "info@midlandgeosystems.co.ke",
-        "surveys@midlandgeosystems.co.ke",
-        "support@midlandgeosystems.co.ke"
-      ]
-    },
-    {
-      icon: "🕐",
-      title: "Business Hours",
-      details: [
-        "Monday - Friday: 8:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-        "Sunday: Closed",
-        "Emergency: 24/7 Available"
-      ]
-    }
-  ]
-
-  const services = [
-    "Cadastral Surveying",
-    "Engineering Surveying", 
-    "Photogrammetry",
-    "Topographic Surveys",
-    "GIS Services",
-    "Consultation Services",
-    "Other"
-  ]
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <section className="bg-gradient-to-r from-primary via-primary to-steel-grey text-white py-16">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl opacity-90 max-w-3xl">
-            Get in touch with our expert team for professional surveying solutions
-          </p>
+    <div className="bg-white min-h-screen">
+      {/* 1. Hero Section */}
+      <section className="relative pt-24 px-4 lg:px-6">
+        <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
+          <div className="absolute inset-0">
+            <img src={data} alt="Contact Us" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
+          </div>
+          
+          <div className="relative z-10 h-full flex items-center px-6 lg:px-12">
+            <div className="max-w-3xl space-y-6">
+              <h1 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-primary font-bold">Connect</h1>
+              <motion.h2 
+                initial="hidden" animate="visible" transition={{ delay: 0.1 }} variants={fadeIn}
+                className="text-white text-2xl md:text-4xl font-black tracking-tighter leading-tight drop-shadow-md"
+              >
+                Technical Inquiries & <br />
+                <span className="text-white/70">Project Consultations.</span>
+              </motion.h2>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfo.map((info, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl mb-4">{info.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-gray-800">{info.title}</h3>
-                <div className="space-y-2">
-                  {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-600 text-sm">{detail}</p>
-                  ))}
-                </div>
-              </div>
+      {/* 2. Minimalist Info Cards */}
+      <section className="py-12 lg:py-20 bg-white">
+        <div className="w-full max-w-[95%] mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
+            {[
+              { label: "Email Address", val: "info@midlandgeosystems.co.ke", icon: "✉️" },
+              { label: "Phone Line", val: "+245725970173", icon: "📞" },
+              { label: "Office Location", val: "ABC Plaza, Moi Avenue, Nairobi", icon: "📍" }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 bg-slate-50/50 rounded-[2.5rem] border border-slate-100 flex flex-col items-center text-center group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+              >
+                <div className="text-2xl mb-4 grayscale group-hover:grayscale-0 transition-all">{item.icon}</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">{item.label}</div>
+                <div className="text-sm lg:text-base font-black text-text-main tracking-tight">{item.val}</div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Form & Map */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">Send Us a Message</h2>
-              
+      {/* 3. Main Body: Form & Map */}
+      <section className="pb-24">
+        <div className="w-full max-w-[95%] mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+            {/* Form Column */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:w-3/5 space-y-10"
+            >
+              <div className="space-y-4">
+                <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-text-main leading-tight bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent">
+                  Send an Inquiry
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed font-medium max-w-xl">
+                  Fill out the form below with your project requirements. Our technical team will review your scope and provide a tailored response within 24 hours.
+                </p>
+              </div>
+
               {isSubmitted ? (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
-                  <div className="text-5xl mb-4">✅</div>
-                  <h3 className="text-2xl font-bold mb-2 text-green-800">Message Sent Successfully!</h3>
-                  <p className="text-green-600">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                </div>
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-primary/5 border border-primary/10 rounded-[2.5rem] p-12 text-center space-y-4">
+                  <div className="text-4xl">✅</div>
+                  <h4 className="text-xl font-black text-primary">Inquiry Sent Successfully</h4>
+                  <p className="text-slate-500 text-sm font-medium">Thank you for reaching out. A specialist will contact you shortly.</p>
+                </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="john@example.com"
-                      />
-                    </div>
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
+                    <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="e.g. John Kamau" />
                   </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="+254 712 345678"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Your Company Ltd"
-                      />
-                    </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Company / Organization</label>
+                    <input type="text" name="company" value={formData.company} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="Organization Name" />
                   </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">
-                      Service Interest *
-                    </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      <option value="">Select a service</option>
-                      {services.map(service => (
-                        <option key={service} value={service}>{service}</option>
-                      ))}
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Address</label>
+                    <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="name@company.com" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
+                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="+254..." />
+                  </div>
+                  <div className="sm:col-span-2 space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Service Required</label>
+                    <select name="service" required value={formData.service} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main appearance-none">
+                      <option value="">Select a service...</option>
+                      <option value="cadastral">Cadastral & Legal Surveying</option>
+                      <option value="engineering">Engineering & Infrastructure</option>
+                      <option value="topographical">Topographical & GIS</option>
                     </select>
                   </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Please describe your project requirements..."
-                    ></textarea>
+                  <div className="sm:col-span-2 space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Project Details</label>
+                    <textarea name="message" required value={formData.message} onChange={handleChange} rows="5" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main resize-none" placeholder="Describe the location and requirements of your project..."></textarea>
                   </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                  >
-                    Send Message
-                  </button>
+                  <div className="sm:col-span-2 pt-4">
+                    <button type="submit" className="group flex items-center justify-center gap-3 w-full sm:w-auto px-12 py-4 bg-primary text-white font-bold rounded-2xl hover:opacity-90 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-primary/20">
+                      <span className="text-xs tracking-widest uppercase">Send Inquiry</span>
+                      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </button>
+                  </div>
                 </form>
               )}
-            </div>
+            </motion.div>
 
-            {/* Map & Additional Info */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">Find Us</h2>
-              
-              {/* Map Placeholder */}
-              <div className="bg-gray-200 rounded-lg h-64 mb-8 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🗺️</div>
-                  <p className="text-gray-600">Interactive Map</p>
-                  <p className="text-sm text-gray-500">ABC Plaza, Moi Avenue, Nairobi</p>
+            {/* Map Column */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:w-2/5 min-h-[400px] lg:min-h-full"
+            >
+              <div className="h-full rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 relative group">
+                <MapContainer 
+                  center={[-1.2858, 36.8235]} 
+                  zoom={15} 
+                  className="w-full h-full grayscale-[0.2] contrast-[1.1]"
+                  zoomControl={false}
+                >
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                  <Marker position={[-1.2858, 36.8235]} icon={customIcon} />
+                </MapContainer>
+                
+                {/* Map Overlay Badge */}
+                <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-[2rem] shadow-2xl border border-white/20 z-[1000] transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-primary mb-1">Headquarters</div>
+                  <div className="text-sm font-black text-text-main">ABC Plaza, Moi Avenue</div>
+                  <div className="text-[11px] text-slate-500 font-medium mt-1">Nairobi, Kenya</div>
                 </div>
               </div>
-
-              {/* Quick Contact */}
-              <div className="bg-blue-50 rounded-lg p-6 mb-8">
-                <h3 className="text-xl font-bold mb-4 text-gray-800">Quick Contact</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                    </svg>
-                    <span className="text-gray-700">+254 712 345678</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    <span className="text-gray-700">info@midlandgeosystems.co.ke</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <span className="text-gray-700">ABC Plaza, Moi Avenue, Nairobi</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div className="text-center">
-                <h3 className="text-xl font-bold mb-4 text-gray-800">Follow Us</h3>
-                <div className="flex justify-center space-x-4">
-                  <button className="w-12 h-12 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
-                    <span className="text-xl">f</span>
-                  </button>
-                  <button className="w-12 h-12 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition-colors">
-                    <span className="text-xl">t</span>
-                  </button>
-                  <button className="w-12 h-12 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-colors">
-                    <span className="text-xl">in</span>
-                  </button>
-                  <button className="w-12 h-12 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors">
-                    <span className="text-xl">wh</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Frequently Asked Questions
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-3 text-gray-800">What areas do you serve?</h3>
-              <p className="text-gray-600">
-                We provide surveying services throughout Kenya and have completed projects in 47 counties. 
-                Our main office is in Nairobi, but we have teams available for projects across the country.
-              </p>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-3 text-gray-800">How long does a typical survey take?</h3>
-              <p className="text-gray-600">
-                Project timelines vary depending on scope and complexity. Simple boundary surveys may take 2-3 days, 
-                while large engineering projects can take several weeks. We provide detailed timelines with each quote.
-              </p>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-3 text-gray-800">Are you licensed and insured?</h3>
-              <p className="text-gray-600">
-                Yes, we are fully licensed by the Surveyors Board of Kenya and carry comprehensive professional 
-                liability insurance. All our surveyors are registered members of the Institution of Surveyors of Kenya.
-              </p>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-3 text-gray-800">What equipment do you use?</h3>
-              <p className="text-gray-600">
-                We use state-of-the-art equipment including GPS/GNSS systems, robotic total stations, 3D laser scanners, 
-                and drone photogrammetry systems to ensure the highest accuracy and efficiency.
-              </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

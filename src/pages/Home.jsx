@@ -5,6 +5,7 @@ import AboutSection from '../components/AboutSection'
 import ServicesOverview from '../components/ServicesOverview'
 import ProjectsSection from '../components/ProjectsSection'
 import TestimonialsSection from '../components/TestimonialsSection'
+import FAQSection from '../components/FAQSection'
 
 const Home = () => {
   return (
@@ -47,17 +48,17 @@ const Home = () => {
 
             <div className="relative z-10">
               <h2 className="text-2xl lg:text-4xl font-black tracking-tighter leading-tight mb-4 text-white">
-                Ready to Start Your <span className="text-white/80">Project?</span>
+                Ready to Start Your <br className="sm:hidden" /> <span className="text-white/80">Project?</span>
               </h2>
-              <p className="text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
+              <p className="text-xs sm:text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
                 Partner with Kenya's leading geospatial experts for precision-driven solutions tailored to your infrastructure needs.
               </p>
               <Link 
                 to="/contact" 
-                className="group inline-flex items-center px-8 py-3.5 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl shadow-black/10"
+                className="group inline-flex items-center px-6 py-2.5 sm:px-8 sm:py-3.5 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl shadow-black/10"
               >
-                <span className="text-xs tracking-widest uppercase">Get in Touch</span>
-                <svg className="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="text-[10px] sm:text-xs tracking-widest uppercase">Get in Touch</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
@@ -65,6 +66,8 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      <FAQSection />
       </div>
     </div>
   )

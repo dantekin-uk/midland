@@ -4,9 +4,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
-import Cadastral from './pages/Cadastral'
-import Engineering from './pages/Engineering'
-import Photogrammetry from './pages/Photogrammetry'
+import ServiceDetail from './pages/ServiceDetail'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 
@@ -20,9 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/cadastral" element={<Cadastral />} />
-            <Route path="/services/engineering" element={<Engineering />} />
-            <Route path="/services/photogrammetry" element={<Photogrammetry />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

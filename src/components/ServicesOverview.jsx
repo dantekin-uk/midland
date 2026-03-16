@@ -79,7 +79,7 @@ const ServicesOverview = () => {
             >
               <Link 
                 to={service.link}
-                className="relative block h-[320px] md:h-[300px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-black/5 transition-all duration-700 ease-[0.22, 1, 0.36, 1] hover:shadow-primary/20 hover:-translate-y-2"
+                className="relative block h-[260px] sm:h-[300px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-black/5 transition-all duration-700 ease-[0.22, 1, 0.36, 1] hover:shadow-primary/20 hover:-translate-y-2"
               >
                 {/* Image with subtle zoom */}
                 <img 
@@ -93,21 +93,21 @@ const ServicesOverview = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
                   <div className="relative z-10">
-                    <h3 className="text-xl lg:text-2xl font-black text-white mb-3 tracking-tighter leading-tight">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-black text-white mb-2 sm:mb-3 tracking-tighter leading-tight">
                       {service.title}
                     </h3>
                     
                     <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
                       <div className="overflow-hidden">
-                        <p className="text-white/80 text-xs font-medium mb-6 leading-relaxed">
+                        <p className="text-white/80 text-[10px] sm:text-xs font-medium mb-4 sm:mb-6 leading-relaxed">
                           {service.desc}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 text-white font-bold text-xs uppercase tracking-[0.2em]">
+                    <div className="flex items-center gap-3 text-white font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em]">
                       <span className="w-6 h-[2px] bg-white/40 group-hover:w-10 group-hover:bg-white transition-all duration-500"></span>
                       Learn More
                     </div>
