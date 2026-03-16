@@ -210,7 +210,7 @@ const Projects = () => {
       <section className="relative pt-24 px-4 lg:px-6">
         <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={topography} alt="Our Projects" className="w-full h-full object-cover" />
+            <img src={topography} alt="Our Projects" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
           </div>
           

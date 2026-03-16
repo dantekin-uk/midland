@@ -85,7 +85,7 @@ const ServicesOverview = () => {
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy"
                 />
                 
                 {/* Modern Gradient Overlay - Primary color at bottom, smooth transition */}

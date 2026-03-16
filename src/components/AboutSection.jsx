@@ -102,7 +102,7 @@ const AboutSection = () => {
                 <div className="relative z-10 rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl shadow-black/20 transform group-hover:scale-[1.02] transition-all duration-700">
                   <img
                     src={aboutimage}
-                    className="w-full h-[250px] sm:h-[350px] lg:h-[350px] object-cover"
+                    className="w-full h-[250px] sm:h-[350px] lg:h-[350px] object-cover" loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-steel-grey/20 mix-blend-overlay"></div>
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>

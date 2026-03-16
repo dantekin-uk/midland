@@ -18,7 +18,7 @@ const About = () => {
         <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
           {/* Background Image Container */}
           <div className="absolute inset-0">
-            <img src={aboutHero} alt="Midland Geosystems Fieldwork" className="w-full h-full object-cover" />
+            <img src={aboutHero} alt="Midland Geosystems Fieldwork" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
             {/* Gradient Overlay for Readability - Image is now full opacity */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
           </div>

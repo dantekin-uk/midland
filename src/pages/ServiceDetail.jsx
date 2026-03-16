@@ -15,6 +15,9 @@ import dispute from '../assets/servicesoptions/dispute.jpg';
 import modeling from '../assets/servicesoptions/modeling.jpg';
 import data from '../assets/servicesoptions/data.jpg';
 import topography from '../assets/servicesoptions/topography.jpg';
+import photogrammetryUAV from '../assets/services/photography.jpg'; // Fallback: Using existing photogrammetry image to resolve import error
+import terrainModeling from '../assets/servicesoptions/modeling.jpg'; // Assuming this is the new 3D Terrain Modeling image
+import topographicSurveys from '../assets/servicesoptions/topography.jpg'; // Assuming this is the new Topographic Surveys image
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -136,7 +139,7 @@ const SERVICE_DATA = {
       { label: "Rapid Site Assessment", desc: "Quickly capturing the current state of a development site or agricultural block." },
       { label: "Progress Monitoring", desc: "Periodic drone flights to track construction milestones visually." }
     ],
-    image: photogrammetry, // Assuming photogrammetry.jpg is for UAV Photogrammetry
+    image: photogrammetryUAV,
     specs: [ { label: "GSD", val: "1.5cm/px" }, { label: "Output", val: "3D Models" }, { label: "Platform", val: "Fixed Wing/Multi" } ]
   },
   "topographic-surveys": {
@@ -149,7 +152,7 @@ const SERVICE_DATA = {
       { label: "Feature Extraction", desc: "Pinpointing the exact locations of trees, water bodies, roads, and existing infrastructure." },
       { label: "Design Foundation", desc: "Supplying precise CAD-ready files that serve as the base layer for all design work." }
     ],
-    image: topography,
+    image: topographicSurveys,
     specs: [ { label: "Format", val: "DWG/DXF" }, { label: "Interval", val: "0.5m Contours" }, { label: "Detail", val: "All-Feature" } ]
   },
   "3d-terrain-modeling": {
@@ -162,7 +165,7 @@ const SERVICE_DATA = {
       { label: "Digital Terrain Models (DTM)", desc: "Incorporating breaklines and spatial features for complex engineering calculations." },
       { label: "Slope & Runoff Analysis", desc: "Utilizing 3D data to predict water flow and prevent flooding on development sites." }
     ],
-    image: modeling,
+    image: terrainModeling,
     specs: [ { label: "Mesh", val: "Triangulated" }, { label: "Analysis", val: "Slope/Aspect" }, { label: "Precision", val: "High-Grid" } ]
   },
   "gis-data-management": {
@@ -215,7 +218,7 @@ const ServiceDetail = () => {
       <section className="relative pt-20 sm:pt-24 px-4 lg:px-6">
         <div className="relative w-full max-w-[95%] mx-auto h-[280px] sm:h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[80px] sm:rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={data.image} alt={data.title} className="w-full h-full object-cover" />
+            <img src={data.image} alt={data.title} className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
           </div>
           
@@ -446,7 +449,7 @@ const ServiceDetail = () => {
                 >
                   <Link to={`/services/${service.slug}`} className="group block h-full bg-white rounded-[2.5rem] border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
                     <div className="h-40 overflow-hidden relative">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" /> {/* Lazy load for discovery cards */}
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent"></div>
                     </div>
                     <div className="p-8">

@@ -79,7 +79,7 @@ const Services = () => {
       <section className="relative pt-24 px-4 lg:px-6">
         <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={modeling} alt="Our Services" className="w-full h-full object-cover" />
+            <img src={modeling} alt="Our Services" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
           </div>
           
@@ -184,7 +184,7 @@ const Services = () => {
                     <div key={idx}>
                       <Link to={option.path} className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
                         <div className="h-40 overflow-hidden relative">
-                          <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                          <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" /> {/* Lazy load for service option images */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                         </div>
                         <div className="p-8 space-y-3">
