@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import aboutHero from '../assets/about.jpg';
 import surveying from '../assets/services/survaying.jpg';
-import engineering from '../assets/services/con.jpg';
+import engineering from '../assets/services/construction.jpg';
 import photogrammetry from '../assets/services/ser3.jpg';
 import boundary from '../assets/servicesoptions/bau.jpg';
 import subdivision from '../assets/servicesoptions/land.jpg';
@@ -41,7 +41,7 @@ const Services = () => {
     {
       id: "cadastral",
       title: "Cadastral & Legal Surveying",
-      description: "Our cadastral services provide the foundation for secure land ownership. We combine technical expertise with legal knowledge to deliver accurate boundary surveys recognized by the SBK.",
+      description: "Our cadastral services provide the foundation for secure land ownership. We combine technical expertise with legal knowledge to deliver accurate boundary surveys recognized by the LSB.",
       options: [
         { title: "Boundary Definition", desc: "Precise re-establishment of legal property lines.", image: boundary, path: "/services/boundary-definition" },
         { title: "Land Subdivisions", desc: "Expert partitioning for residential and commercial development.", image: subdivision, path: "/services/land-subdivisions" },

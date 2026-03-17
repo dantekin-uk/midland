@@ -182,7 +182,7 @@ const TechnicalPanel = ({ project, onClose }) => {
           <div className="relative z-10">
             <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-3">Verification Summary</h4>
             <p className="text-slate-600 text-xs leading-relaxed font-medium">
-              Spatial data collection utilized RTK-enabled GNSS receivers and high-order control networks to ensure statutory compliance with Surveyors Board of Kenya (SBK) standards.
+              Spatial data collection utilized RTK-enabled GNSS receivers and high-order control networks to ensure statutory compliance with Land Surveyors' Board (LSB) standards.
             </p>
           </div>
         </div>

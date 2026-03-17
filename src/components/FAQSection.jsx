@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     question: "Are your surveyors licensed and registered?",
-    answer: "Yes. All our lead professionals are proudly registered with the Surveyors Board of Kenya (SBK) and are active members of the Institution of Surveyors of Kenya (ISK), ensuring full regulatory compliance and ethical standards."
+    answer: "Yes. All our lead professionals are proudly registered with the Land Surveyors' Board (LSB), ensuring full regulatory compliance and ethical standards."
   },
   {
     question: "What technology do you utilize for large-scale projects?",

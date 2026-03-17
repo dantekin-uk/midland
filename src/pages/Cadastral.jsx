@@ -29,7 +29,7 @@ const Cadastral = () => {
               </p>
               <p className="text-gray-600 mb-4">
                 Whether you're a property owner, developer, or legal professional, our team ensures 
-                that your land survey meets all requirements of the Surveyors Board of Kenya and 
+                that your land survey meets all requirements of the Land Surveyors' Board (LSB) and 
                 relevant land laws.
               </p>
               <p className="text-gray-600">

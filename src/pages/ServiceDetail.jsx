@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import aboutHero from '../assets/about.jpg';
 import surveying from '../assets/services/survaying.jpg';
-import engineering from '../assets/services/con.jpg';
+import engineering from '../assets/servicesoptions/construction.jpg';
 import photogrammetry from '../assets/services/photography.jpg';
 import documentation from '../assets/servicesoptions/doc.jpg';
 import earthworks from '../assets/servicesoptions/eath.jpg';
@@ -33,10 +33,10 @@ const SERVICE_DATA = {
     features: [
       { label: "Beacon Replacement", desc: "Accurate restoration of lost, buried, or moved boundary markers." },
       { label: "Pre-Purchase Verification", desc: "Confirming exact acreage and dimensions before finalizing land transactions to protect your investment." },
-      { label: "Statutory Compliance", desc: "All boundary work is executed to the exact legal standards required by the Surveyors Board of Kenya (SBK)." }
+      { label: "Statutory Compliance", desc: "All boundary work is executed to the exact legal standards required by the Land Surveyors' Board (LSB)." }
     ],
     image: boundary,
-    specs: [ { label: "Accuracy", val: "±20mm" }, { label: "Standard", val: "SBK Regulated" }, { label: "Tech", val: "GNSS/RTK" } ]
+    specs: [ { label: "Accuracy", val: "±20mm" }, { label: "Standard", val: "LSB Regulated" }, { label: "Tech", val: "GNSS/RTK" } ]
   },
   "land-subdivisions": {
     title: "Land Subdivision & Consolidation",
@@ -75,7 +75,7 @@ const SERVICE_DATA = {
       { label: "Historical Data Comparison", desc: "Analyzing old deed plans against current ground realities." }
     ],
     image: dispute,
-    specs: [ { label: "Role", val: "Expert Witness" }, { label: "Evidence", val: "Court-Ready" }, { label: "Standard", val: "ISK Ethics" } ]
+    specs: [ { label: "Role", val: "Expert Witness" }, { label: "Evidence", val: "Court-Ready" }, { label: "Standard", val: "Professional Ethics" } ]
   },
   "construction-setting-out": {
     title: "Construction Setting Out",
