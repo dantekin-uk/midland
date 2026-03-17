@@ -7,33 +7,62 @@ const HeroSection = () => {
   const [videoError, setVideoError] = useState(false)
 
   useEffect(() => {
+    let isMounted = true
+    const timeoutId = setTimeout(() => {
+      if (isMounted) {
+        setVideoError(true)
+      }
+    }, 5000) // 5 second timeout
+
     // Check if video file exists and can be loaded
     const video = document.createElement('video')
     video.src = '/assets/hero.mp4'
-    
+
     video.onloadeddata = () => {
-      setVideoLoaded(true)
-      setVideoError(false)
+      if (isMounted) {
+        setVideoLoaded(true)
+        setVideoError(false)
+        clearTimeout(timeoutId)
+      }
     }
-    
+
     video.onerror = () => {
-      setVideoLoaded(false)
-      setVideoError(true)
+      if (isMounted) {
+        setVideoLoaded(false)
+        setVideoError(true)
+        clearTimeout(timeoutId)
+      }
     }
 
     // Also try to fetch the file to check if it exists
-    fetch('/assets/hero.mp4')
+    const controller = new AbortController()
+    const fetchTimeoutId = setTimeout(() => {
+      controller.abort()
+    }, 3000)
+
+    fetch('/assets/hero.mp4', { signal: controller.signal })
       .then(response => {
-        if (response.ok) {
+        clearTimeout(fetchTimeoutId)
+        if (response.ok && isMounted) {
           // File exists, try to load it
           video.load()
-        } else {
+        } else if (isMounted) {
           setVideoError(true)
         }
       })
-      .catch(() => {
-        setVideoError(true)
+      .catch((error) => {
+        clearTimeout(fetchTimeoutId)
+        if (isMounted && error.name !== 'AbortError') {
+          setVideoError(true)
+        }
       })
+
+    return () => {
+      isMounted = false
+      clearTimeout(timeoutId)
+      clearTimeout(fetchTimeoutId)
+      controller.abort()
+    }
   }, [])
 
   return (
