@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import aboutHero from '../assets/about.jpg';
 import surveying from '../assets/services/survaying.jpg';
-import engineering from '../assets/services/construction.jpg';
+import engineering from '../assets/servicesoptions/construction.jpg';
 import photogrammetry from '../assets/services/ser3.jpg';
 import boundary from '../assets/servicesoptions/bau.jpg';
 import subdivision from '../assets/servicesoptions/land.jpg';

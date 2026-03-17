@@ -82,11 +82,10 @@ const StatsDock = () => {
       )
     },
     {
-      value: "2",
+      value: "1",
       label: "Board Reg",
       color: "text-primary",
       desc: "LSB Registered",
-      color: "text-primary",
       bg: "bg-primary/10",
       hoverBg: "group-hover:bg-primary",
       icon: (
