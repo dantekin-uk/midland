@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import irrigation from '../assets/projects/irrigation.jpg'
-import siaya from '../assets/projects/siaya.jpg'
-import lastmile from '../assets/projects/lastmile.jpg'
+import irrigation from '../assets/projects/abt2.jpg'
+import siaya from '../assets/projects/rd.jpg'
+import lastmile from '../assets/projects/proj1.jpg'
 const itemVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.98 },
   visible: { 

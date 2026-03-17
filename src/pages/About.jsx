@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import aboutHero from '../assets/about.jpg'; // Reusing your existing asset
-import storyimage from '../assets/about1.jpg';
-import storyimage2 from '../assets/about2.jpg';// New image for the story section
+import aboutHero from '../assets/services/ser3.jpg'; // Reusing your existing asset
+import storyimage from '../assets/abt2.jpg';
+import storyimage2 from '../assets/abt.jpg';// New image for the story section
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },

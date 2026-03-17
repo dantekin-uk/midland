@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import surveying from '../assets/services/survaying.jpg'
-import engineering from '../assets/services/engenearing.jpg'
-import photogrammetry from '../assets/services/photography.jpg'
+import surveying from '../assets/services/ser1.jpg'
+import engineering from '../assets/services/ser2.jpg'
+import photogrammetry from '../assets/services/ser3.jpg'
 
 const containerVariants = {
   hidden: { opacity: 0 },

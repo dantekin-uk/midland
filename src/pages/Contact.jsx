@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import data from '../assets/servicesoptions/data.jpg'; // New image for Contact hero
+import data from '../assets/servicesoptions/dt.jpg'; // New image for Contact hero
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },

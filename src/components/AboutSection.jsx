@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import aboutimage from '../assets/about.jpg'
+// import aboutimage from '../assets/about.jpg'
+import aboutimage from '../assets/abt.jpg'
+
 
 const containerVariants = {
   hidden: { opacity: 0 },

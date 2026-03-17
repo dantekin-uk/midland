@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import aboutHero from '../assets/about.jpg';
 import surveying from '../assets/services/survaying.jpg';
-import engineering from '../assets/services/engenearing.jpg';
-import photogrammetry from '../assets/services/photography.jpg';
-import boundary from '../assets/servicesoptions/boundary.jpg';
-import subdivision from '../assets/servicesoptions/subdevision.jpg';
-import titledeed from '../assets/servicesoptions/titledeed.jpg'; 
-import dispute from '../assets/servicesoptions/dispute.jpg';
-import documentation from '../assets/servicesoptions/documentation.jpg';
-import earthworks from '../assets/servicesoptions/earthworks.jpg';
-import roadpipeline from '../assets/servicesoptions/road.jpg';
-import modeling from '../assets/servicesoptions/modeling.jpg';
-import data from '../assets/servicesoptions/data.jpg';
-import topography from '../assets/servicesoptions/topography.jpg';
+import engineering from '../assets/services/con.jpg';
+import photogrammetry from '../assets/services/ser3.jpg';
+import boundary from '../assets/servicesoptions/bau.jpg';
+import subdivision from '../assets/servicesoptions/land.jpg';
+import titledeed from '../assets/servicesoptions/tit.jpg'; 
+import dispute from '../assets/servicesoptions/dis.webp';
+import documentation from '../assets/servicesoptions/doc.jpg';
+import earthworks from '../assets/servicesoptions/eath.jpg';
+import roadpipeline from '../assets/servicesoptions/rd.jpg';
+import modeling from '../assets/servicesoptions/ser2.jpg';
+import data from '../assets/servicesoptions/dt.jpg';
+import topography from '../assets/servicesoptions/rd.jpg';
 
 
 const fadeIn = {

@@ -83,8 +83,9 @@ const StatsDock = () => {
     },
     {
       value: "2",
-      label: "Board Regs",
-      desc: "SBK & ISK Registered",
+      label: "Board Reg",
+      color: "text-primary",
+      desc: "LSB Registered",
       color: "text-primary",
       bg: "bg-primary/10",
       hoverBg: "group-hover:bg-primary",

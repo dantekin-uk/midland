@@ -3,21 +3,21 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import aboutHero from '../assets/about.jpg';
 import surveying from '../assets/services/survaying.jpg';
-import engineering from '../assets/services/engenearing.jpg';
+import engineering from '../assets/services/con.jpg';
 import photogrammetry from '../assets/services/photography.jpg';
-import documentation from '../assets/servicesoptions/documentation.jpg';
-import earthworks from '../assets/servicesoptions/earthworks.jpg';
-import roadpipeline from '../assets/servicesoptions/road.jpg';
-import boundary from '../assets/servicesoptions/boundary.jpg';
-import subdivision from '../assets/servicesoptions/subdevision.jpg';
-import titledeed from '../assets/servicesoptions/titledeed.jpg'; 
-import dispute from '../assets/servicesoptions/dispute.jpg';
+import documentation from '../assets/servicesoptions/doc.jpg';
+import earthworks from '../assets/servicesoptions/eath.jpg';
+import roadpipeline from '../assets/servicesoptions/rd.jpg';
+import boundary from '../assets/servicesoptions/bau.jpg';
+import subdivision from '../assets/servicesoptions/land.jpg';
+import titledeed from '../assets/servicesoptions/tit.jpg'; 
+import dispute from '../assets/servicesoptions/dis.webp';
 import modeling from '../assets/servicesoptions/modeling.jpg';
-import data from '../assets/servicesoptions/data.jpg';
+import data from '../assets/servicesoptions/dt.jpg';
 import topography from '../assets/servicesoptions/topography.jpg';
-import photogrammetryUAV from '../assets/services/photography.jpg'; // Fallback: Using existing photogrammetry image to resolve import error
+import photogrammetryUAV from '../assets/services/ser3.jpg'; // Fallback: Using existing photogrammetry image to resolve import error
 import terrainModeling from '../assets/servicesoptions/modeling.jpg'; // Assuming this is the new 3D Terrain Modeling image
-import topographicSurveys from '../assets/servicesoptions/topography.jpg'; // Assuming this is the new Topographic Surveys image
+import topographicSurveys from '../assets/servicesoptions/rd.jpg'; // Assuming this is the new Topographic Surveys image
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -81,7 +81,7 @@ const SERVICE_DATA = {
     title: "Construction Setting Out",
     category: "Engineering & Infrastructure Surveying",
     heroDesc: "Flawless translation of architectural and engineering design to reality.",
-    details: "A successful construction project relies on a flawless translation of design to reality. We take architectural and engineering blueprints and mark their exact, millimeter-perfect positions on the ground, ensuring your contractors build exactly where they are supposed to.",
+    details: "A successful construction project relies on a flawless translation of design to reality. We take architectural and engineering blueprints and mark their exact, millimeter perfect positions on the ground, ensuring your contractors build exactly where they are supposed to.",
     features: [
       { label: "Foundation Positioning", desc: "Precise pegging for building corners, columns, and structural grids." },
       { label: "Infrastructure Alignment", desc: "Setting out centerlines and limits for roads, drainage, and utilities." },

@@ -182,10 +182,10 @@ const Footer = () => {
       <div className="border-t border-white/5 bg-[#7A848D]">
         <div className="container mx-auto px-6 py-3">
           <div className="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs text-slate-900 font-bold uppercase tracking-widest">
-            <div className="mb-2 md:mb-0">
-              Licensed by Surveyors Board of Kenya | Member of Institution of Surveyors of Kenya (ISK)
+            <div className="mb-2 md:mb-0 text-center md:text-left">
+              Licensed by Land Surveyors' Board (LSB)
             </div>
-            <div>
+            <div className="text-center md:text-right">
               ISO 9001:2015 Certified | Committed to Quality & Excellence
             </div>
           </div>
