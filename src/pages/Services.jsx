@@ -1,20 +1,19 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import aboutHero from '../assets/about.jpg';
-import surveying from '../assets/services/survaying.jpg';
+
 import engineering from '../assets/servicesoptions/construction.jpg';
 import photogrammetry from '../assets/services/ser3.jpg';
 import boundary from '../assets/servicesoptions/bau.jpg';
-import subdivision from '../assets/servicesoptions/land.jpg';
+import subdivision from '../assets/servicesoptions/doc.jpg';
 import titledeed from '../assets/servicesoptions/tit.jpg'; 
 import dispute from '../assets/servicesoptions/dis.webp';
 import documentation from '../assets/servicesoptions/doc.jpg';
 import earthworks from '../assets/servicesoptions/eath.jpg';
 import roadpipeline from '../assets/servicesoptions/rd.jpg';
-import modeling from '../assets/servicesoptions/ser2.jpg';
+import modeling from '../assets/servicesoptions/bau.jpg';
 import data from '../assets/servicesoptions/dt.jpg';
-import topography from '../assets/servicesoptions/topography.jpg';
+import topography from '../assets/servicesoptions/doc.jpg';
 
 
 const fadeIn = {
