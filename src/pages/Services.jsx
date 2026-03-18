@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import engineering from '../assets/servicesoptions/construction.jpg';
 import photogrammetry from '../assets/services/ser3.jpg';
 import boundary from '../assets/servicesoptions/bau.jpg';
-import subdivision from '../assets/servicesoptions/doc.jpg';
+import subdivision from '../assets/servicesoptions/land.jpg';
 import titledeed from '../assets/servicesoptions/tit.jpg'; 
 import dispute from '../assets/servicesoptions/dis.webp';
 import documentation from '../assets/servicesoptions/doc.jpg';
 import earthworks from '../assets/servicesoptions/eath.jpg';
 import roadpipeline from '../assets/servicesoptions/rd.jpg';
-import modeling from '../assets/servicesoptions/bau.jpg';
+import modeling from '../assets/servicesoptions/doc.jpg';
 import data from '../assets/servicesoptions/dt.jpg';
-import topography from '../assets/servicesoptions/doc.jpg';
+import topography from '../assets/servicesoptions/land.jpg';
 
 
 const fadeIn = {
@@ -78,7 +78,7 @@ const Services = () => {
       <section className="relative pt-24 px-4 lg:px-6">
         <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={modeling} alt="Our Services" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
+            <img src={photogrammetry} alt="Our Services" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
           </div>
           

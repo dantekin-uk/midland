@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import { useInView } from 'react-intersection-observer';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import topography from '../assets/servicesoptions/ser3.jpg'; // New image for Projects hero
+import topography from '../assets/services/ser3.jpg';
 
 // Fix Leaflet marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;

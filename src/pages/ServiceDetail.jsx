@@ -1,10 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import aboutHero from '../assets/about.jpg';
-import surveying from '../assets/services/survaying.jpg';
+
 import engineering from '../assets/servicesoptions/construction.jpg';
-import photogrammetry from '../assets/services/photography.jpg';
+
 import documentation from '../assets/servicesoptions/doc.jpg';
 import earthworks from '../assets/servicesoptions/eath.jpg';
 import roadpipeline from '../assets/servicesoptions/rd.jpg';
@@ -12,12 +11,10 @@ import boundary from '../assets/servicesoptions/bau.jpg';
 import subdivision from '../assets/servicesoptions/land.jpg';
 import titledeed from '../assets/servicesoptions/tit.jpg'; 
 import dispute from '../assets/servicesoptions/dis.webp';
-import modeling from '../assets/servicesoptions/modeling.jpg';
+import modeling from '../assets/servicesoptions/doc.jpg';
 import data from '../assets/servicesoptions/dt.jpg';
-import topography from '../assets/servicesoptions/topography.jpg';
-import photogrammetryUAV from '../assets/services/ser3.jpg'; // Fallback: Using existing photogrammetry image to resolve import error
-import terrainModeling from '../assets/servicesoptions/modeling.jpg'; // Assuming this is the new 3D Terrain Modeling image
-import topographicSurveys from '../assets/servicesoptions/rd.jpg'; // Assuming this is the new Topographic Surveys image
+
+import photogrammetryUAV from '../assets/services/ser3.jpg';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -152,7 +149,7 @@ const SERVICE_DATA = {
       { label: "Feature Extraction", desc: "Pinpointing the exact locations of trees, water bodies, roads, and existing infrastructure." },
       { label: "Design Foundation", desc: "Supplying precise CAD-ready files that serve as the base layer for all design work." }
     ],
-    image: topographicSurveys,
+    image: roadpipeline,
     specs: [ { label: "Format", val: "DWG/DXF" }, { label: "Interval", val: "0.5m Contours" }, { label: "Detail", val: "All-Feature" } ]
   },
   "3d-terrain-modeling": {
@@ -165,7 +162,7 @@ const SERVICE_DATA = {
       { label: "Digital Terrain Models (DTM)", desc: "Incorporating breaklines and spatial features for complex engineering calculations." },
       { label: "Slope & Runoff Analysis", desc: "Utilizing 3D data to predict water flow and prevent flooding on development sites." }
     ],
-    image: terrainModeling,
+    image: modeling,
     specs: [ { label: "Mesh", val: "Triangulated" }, { label: "Analysis", val: "Slope/Aspect" }, { label: "Precision", val: "High-Grid" } ]
   },
   "gis-data-management": {
