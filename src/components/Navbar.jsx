@@ -79,7 +79,7 @@ const Navbar = () => {
                 className={`px-4 py-2 rounded-full text-[10px] lg:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 flex items-center gap-1 ${
                   (location.pathname === link.path) || (link.hasDropdown && location.pathname.startsWith('/services'))
                     ? 'text-primary bg-primary/5'
-                    : 'text-steel-grey hover:text-primary hover:bg-slate-50'
+                    : 'text-slate-700 hover:text-primary hover:bg-slate-50'
                 }`}
               >
                 {link.name}
@@ -120,8 +120,8 @@ const Navbar = () => {
                       <ul className="space-y-1">
                         {category.items.map((item) => (
                           <li key={item.slug}>
-                            <Link 
-                              to={`/services/${item.slug}`}
+                            <Link
+                              to={`/services/${item.slug}`} 
                               className="text-[13px] font-bold text-steel-grey hover:text-primary hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-all duration-300 block leading-tight"
                             >
                               {item.name}
@@ -196,7 +196,7 @@ const Navbar = () => {
                           <button 
                             onClick={() => setActiveMobileCategory(activeMobileCategory === idx ? null : idx)}
                             className={`w-full flex items-center justify-between py-2.5 pl-4 text-xs font-semibold tracking-wide transition-colors ${activeMobileCategory === idx ? 'text-white bg-white/10 rounded-r-xl' : 'text-white/80'}`}
-                          >
+                          > 
                             <span>{category.title}</span>
                             <svg 
                               className={`w-3 h-3 transition-transform duration-300 ${activeMobileCategory === idx ? 'rotate-180' : ''}`} 
@@ -216,7 +216,7 @@ const Navbar = () => {
                                 className="overflow-hidden space-y-1 pl-4 pb-2"
                               >
                                 {category.items.map((item) => (
-                                  <li key={item.slug}>
+                                  <li key={item.slug}> 
                                     <Link 
                                       to={`/services/${item.slug}`}
                                       className="text-xs font-normal text-white/70 hover:text-white transition-colors block py-2 flex items-center gap-2"
@@ -237,8 +237,8 @@ const Navbar = () => {
               ))}
               <div className="pt-4">
                 <Link
-                  to="/contact"
-                  className="block w-full py-4 bg-white text-steel-grey text-center rounded-2xl font-bold text-sm tracking-widest shadow-xl"
+                  to="/contact" 
+                  className="block w-full py-4 bg-white text-slate-900 text-center rounded-2xl font-bold text-sm tracking-widest shadow-xl"
                 >
                   Get a Quote
                 </Link>

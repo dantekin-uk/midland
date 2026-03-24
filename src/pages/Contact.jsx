@@ -129,7 +129,7 @@ const Contact = () => {
                 <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-text-main leading-tight bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent">
                   Send an Inquiry
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed font-medium max-w-xl">
+                <p className="text-slate-700 text-sm leading-relaxed font-medium max-w-xl">
                   Fill out the form below with your project requirements. Our technical team will review your scope and provide a tailored response within 24 hours.
                 </p>
               </div>
@@ -138,29 +138,29 @@ const Contact = () => {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-primary/5 border border-primary/10 rounded-[2.5rem] p-12 text-center space-y-4">
                   <div className="text-4xl">✅</div>
                   <h4 className="text-xl font-black text-primary">Inquiry Sent Successfully</h4>
-                  <p className="text-slate-500 text-sm font-medium">Thank you for reaching out. A specialist will contact you shortly.</p>
+                  <p className="text-slate-700 text-sm font-medium">Thank you for reaching out. A specialist will contact you shortly.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
-                    <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="e.g. John Kamau" />
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-700 ml-1">Full Name</label>
+                    <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-slate-900" placeholder="e.g. John Kamau" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Company / Organization</label>
-                    <input type="text" name="company" value={formData.company} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="Organization Name" />
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-700 ml-1">Company / Organization</label>
+                    <input type="text" name="company" value={formData.company} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-slate-900" placeholder="Organization Name" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Address</label>
-                    <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="name@company.com" />
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-700 ml-1">Email Address</label>
+                    <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-slate-900" placeholder="name@company.com" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
-                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main" placeholder="+254..." />
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-700 ml-1">Phone Number</label>
+                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-slate-900" placeholder="+254..." />
                   </div>
                   <div className="sm:col-span-2 space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Service Required</label>
-                    <select name="service" required value={formData.service} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main appearance-none">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-700 ml-1">Service Required</label>
+                    <select name="service" required value={formData.service} onChange={handleChange} className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-slate-900 appearance-none">
                       <option value="">Select a service...</option>
                       <option value="cadastral">Cadastral & Legal Surveying</option>
                       <option value="engineering">Engineering & Infrastructure</option>
@@ -168,8 +168,8 @@ const Contact = () => {
                     </select>
                   </div>
                   <div className="sm:col-span-2 space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Project Details</label>
-                    <textarea name="message" required value={formData.message} onChange={handleChange} rows="5" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-text-main resize-none" placeholder="Describe the location and requirements of your project..."></textarea>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-700 ml-1">Project Details</label>
+                    <textarea name="message" required value={formData.message} onChange={handleChange} rows="5" className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-sm font-medium text-slate-900 resize-none" placeholder="Describe the location and requirements of your project..."></textarea>
                   </div>
                   <div className="sm:col-span-2 pt-4">
                     <button type="submit" className="group flex items-center justify-center gap-3 w-full sm:w-auto px-12 py-4 bg-primary text-white font-bold rounded-2xl hover:opacity-90 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-primary/20">
@@ -202,7 +202,7 @@ const Contact = () => {
                 {/* Map Overlay Badge */}
                 <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-[2rem] shadow-2xl border border-white/20 z-[1000] transform group-hover:-translate-y-2 transition-transform duration-500">
                   <div className="text-[10px] font-black uppercase tracking-widest text-primary mb-1">Headquarters</div>
-                  <div className="text-sm font-black text-text-main">ABC Plaza, Moi Avenue</div>
+                  <div className="text-sm font-black text-slate-900">ABC Plaza, Moi Avenue</div>
                   <div className="text-[11px] text-slate-500 font-medium mt-1">Nairobi, Kenya</div>
                 </div>
               </div>

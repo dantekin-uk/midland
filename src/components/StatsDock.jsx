@@ -125,7 +125,7 @@ const StatsDock = () => {
             <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-widest">
               {stat.label}
             </span>
-            <span className="hidden sm:block text-[10px] text-steel-grey font-medium mt-1 opacity-70">
+            <span className="hidden sm:block text-[10px] text-slate-600 font-medium mt-1 opacity-70">
               {stat.desc}
             </span>
           </div>

@@ -27,7 +27,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         onClick={onClick}
         className="w-full py-6 flex items-center justify-between text-left group focus:outline-none"
       >
-        <span className={`text-sm sm:text-base font-black tracking-tight transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-text-main group-hover:text-primary'}`}>
+        <span className={`text-sm sm:text-base font-black tracking-tight transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-slate-900 group-hover:text-primary'}`}>
           {question}
         </span>
         <div className={`flex-shrink-0 ml-4 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-primary border-primary text-white rotate-180' : 'text-slate-400 group-hover:border-primary/30 group-hover:text-primary'}`}>
@@ -45,7 +45,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-slate-500 text-xs sm:text-sm leading-relaxed font-medium max-w-3xl">
+            <p className="pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed font-medium max-w-3xl">
               {answer}
             </p>
           </motion.div>
@@ -59,7 +59,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-slate-50/50 relative overflow-hidden">
       <div className="w-full max-w-[95%] mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Left Side: Header */}
@@ -73,7 +73,7 @@ const FAQSection = () => {
             <h2 className="text-3xl lg:text-4xl font-black tracking-tighter leading-[1.05] bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
               Frequently Asked <br /> Questions.
             </h2>
-            <p className="mt-6 text-slate-500 text-sm font-medium leading-relaxed max-w-sm">
+            <p className="mt-6 text-slate-600 text-sm font-medium leading-relaxed max-w-sm">
               Can't find the answer you're looking for? Reach out to our technical team for more specific inquiries regarding your project.
             </p>
           </motion.div>

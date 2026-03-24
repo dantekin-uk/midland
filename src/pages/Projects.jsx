@@ -119,8 +119,8 @@ const ProjectCard = ({ project, onEnter, onViewData }) => {
             {project.title}
           </h2>
           
-          <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-            Client: <span className="text-slate-600">{project.client}</span>
+          <div className="text-[10px] font-bold uppercase tracking-wider text-slate-700">
+            Client: <span className="text-slate-700">{project.client}</span>
           </div>
 
           <p className="text-slate-500 text-sm leading-relaxed font-medium">
@@ -177,7 +177,7 @@ const TechnicalPanel = ({ project, onClose }) => {
         <div className="grid grid-cols-1 xs:grid-cols-2 gap-3">
           {Object.entries(project.techStats).map(([key, val]) => (
             <div key={key} className="p-4 sm:p-5 bg-slate-50/80 backdrop-blur-sm rounded-3xl border border-slate-100 hover:border-primary/20 transition-colors group">
-              <div className="text-text-main font-black text-base mb-1 group-hover:text-primary transition-colors">{val}</div>
+              <div className="text-slate-800 font-black text-base mb-1 group-hover:text-primary transition-colors">{val}</div>
               <div className="text-[8px] uppercase tracking-widest font-bold text-slate-400">{key}</div>
             </div>
           ))}
@@ -189,7 +189,7 @@ const TechnicalPanel = ({ project, onClose }) => {
           </div>
           <div className="relative z-10">
             <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-3">Verification Summary</h4>
-            <p className="text-slate-600 text-xs leading-relaxed font-medium">
+            <p className="text-slate-700 text-xs leading-relaxed font-medium">
               Spatial data collection utilized RTK-enabled GNSS receivers and high-order control networks to ensure statutory compliance with Land Surveyors' Board (LSB) standards.
             </p>
           </div>
@@ -219,7 +219,7 @@ const Projects = () => {
         <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
             <img src={topography} alt="Our Projects" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/30 to-transparent"></div>
           </div>
           
           <div className="relative z-10 h-full flex items-center px-6 lg:px-12">
@@ -228,7 +228,7 @@ const Projects = () => {
 
               <motion.p 
                 initial="hidden" animate="visible" transition={{ delay: 0.2 }} variants={fadeIn}
-                className="text-white text-sm sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md opacity-90"
+                className="text-white text-sm sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md"
               >
                 Showcasing our commitment to precision and technical excellence across Kenya's most vital infrastructure developments and land management projects.
               </motion.p>
@@ -347,7 +347,7 @@ const Projects = () => {
               <h2 className="text-2xl lg:text-4xl font-black tracking-tighter leading-tight mb-4 text-white">
                 Your Vision, <span className="text-white/80">Precisely Mapped.</span>
               </h2>
-              <p className="text-xs sm:text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
+              <p className="text-xs sm:text-sm lg:text-base mb-8 text-white/80 max-w-2xl mx-auto font-medium">
                 From complex infrastructure to legal boundary definitions, our technical team is ready to deliver the accuracy your next project demands.
               </p>
               <Link 

@@ -44,7 +44,7 @@ const ProjectsSection = () => {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       {/* Background Pattern - Matching Services Section */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
           <h2 className="text-3xl lg:text-4xl font-black tracking-tighter leading-[1.05] mb-6 bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
             Featured Projects.
           </h2>
-          <p className="text-steel-grey font-medium text-xs sm:text-sm max-w-xl mx-auto opacity-80">
+          <p className="text-slate-700 font-medium text-xs sm:text-sm max-w-xl mx-auto opacity-80">
             A showcase of our commitment to precision and technical excellence across Kenya's most vital infrastructure developments.
           </p>
         </motion.div>
@@ -103,10 +103,10 @@ const ProjectsSection = () => {
                   {project.title}
                 </h3>
                 <div className="flex gap-6 text-[10px] font-bold uppercase tracking-wider text-steel-grey/60">
-                  {project.client && <span>Client: <span className="text-text-main">{project.client}</span></span>}
-                  <span>Year: <span className="text-text-main">{project.year}</span></span>
+                  {project.client && <span>Client: <span className="text-slate-700">{project.client}</span></span>}
+                  <span>Year: <span className="text-slate-900">{project.year}</span></span>
                 </div>
-                <p className="text-steel-grey text-xs sm:text-sm leading-relaxed font-medium">
+                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
                   {project.desc}
                 </p>
               </div>

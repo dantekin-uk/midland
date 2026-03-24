@@ -88,7 +88,7 @@ const HeroSection = () => {
       </div>
 
       {/* Dark Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-slate-900/50 z-[1]"></div>
+      <div className="absolute inset-0 bg-slate-900/40 z-[1]"></div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center w-full">
@@ -105,7 +105,7 @@ const HeroSection = () => {
             </h1>
             
             {/* Subheadline */}
-            <p className="mt-4 sm:mt-6 text-base sm:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto font-medium drop-shadow-sm">
+            <p className="mt-4 sm:mt-6 text-base sm:text-xl leading-relaxed text-white max-w-2xl mx-auto font-medium drop-shadow-md">
               Operating throughout Kenya since 2016, delivering precise solutions for large infrastructure and mining projects.
             </p>
             

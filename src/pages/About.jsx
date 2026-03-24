@@ -65,7 +65,7 @@ const About = () => {
                 <br />
                 Through Precision
               </h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed font-medium text-xs sm:text-sm">
+              <div className="space-y-4 text-slate-700 leading-relaxed font-medium text-xs sm:text-sm">
                 <p>
                   Founded in 2016, Midland Geosystems Ltd is a premier surveying company operating throughout Kenya. 
                   We pride ourselves on being more than just a consultancy; we act as a true partner contributing to 
@@ -116,7 +116,7 @@ const About = () => {
               <h4 className="text-xl lg:text-2xl font-black tracking-tighter mb-4 bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
                 OUR MISSION
               </h4>
-              <p className="text-sm lg:text-base text-slate-600 leading-relaxed font-medium">
+              <p className="text-sm lg:text-base text-slate-700 leading-relaxed font-medium">
                 To deliver timely, high-quality surveying solutions by combining cutting-edge technology with a technically superior and commercially balanced approach.
               </p>
             </motion.div>
@@ -179,7 +179,7 @@ const About = () => {
                   </div>
                   <div className="pt-2 md:pt-0">
                     <h4 className="text-lg font-black tracking-tighter text-slate-900 mb-3 group-hover:text-primary transition-colors">{milestone.title}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed font-medium">{milestone.desc}</p>
+                    <p className="text-slate-700 text-sm leading-relaxed font-medium">{milestone.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -237,7 +237,7 @@ const About = () => {
                 <h2 className="text-2xl sm:text-3xl font-black tracking-tighter leading-[1.05] mb-4 bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
                   Accreditations & <br /> Compliance
                 </h2>
-                <p className="text-slate-600 leading-relaxed font-medium text-xs sm:text-sm max-w-xl">
+                <p className="text-slate-700 leading-relaxed font-medium text-xs sm:text-sm max-w-xl">
                   At Midland Geosystems Ltd, we operate with the highest level of professional integrity and regulatory compliance. Our operations are fully backed by a team of highly qualified surveyors who are recognized by Kenya's leading professional bodies.
                 </p>
               </div>
@@ -264,8 +264,8 @@ const About = () => {
                         {item.icon}
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-xs font-black tracking-tight text-text-main group-hover:text-primary transition-colors leading-tight">{item.org}</h4>
-                        <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed font-medium">{item.desc}</p>
+                        <h4 className="text-xs font-black tracking-tight text-slate-800 group-hover:text-primary transition-colors leading-tight">{item.org}</h4>
+                        <p className="text-slate-600 text-[10px] sm:text-xs leading-relaxed font-medium">{item.desc}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -292,7 +292,7 @@ const About = () => {
                   Our Technology & <br className="hidden lg:block" /> Equipment
                 </h2>
               </div>
-              <div className="lg:w-2/3">
+              <div className="lg:w-2/3 text-slate-700">
                 <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed max-w-2xl">
                   We leverage state-of-the-art surveying equipment and software to ensure every measurement is captured with total accuracy, driving efficiencies for our clients.
                 </p>
@@ -327,7 +327,7 @@ const About = () => {
                     {tech.icon}
                   </div>
                   <h4 className="text-lg font-black tracking-tight text-slate-900 mb-3">{tech.title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                  <p className="text-slate-700 text-sm leading-relaxed font-medium">
                     {tech.desc}
                   </p>
                 </div>
@@ -359,7 +359,7 @@ const About = () => {
               <h2 className="text-2xl lg:text-4xl font-black tracking-tighter leading-tight mb-4 text-white">
                 Let's Engineer Your Vision <span className="text-white/80">Together.</span>
               </h2>
-              <p className="text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
+              <p className="text-sm lg:text-base mb-8 text-white/80 max-w-2xl mx-auto font-medium">
                 Our dedicated team is ready to provide the professional integrity and technical accuracy your project demands.
               </p>
               <Link 

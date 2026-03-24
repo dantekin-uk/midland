@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
   return (
     <section className="py-24 bg-slate-50/50 relative overflow-hidden border-y border-slate-100">
       {/* Background Pattern - Subtle Technical Grid */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
@@ -61,7 +61,7 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl lg:text-4xl font-black tracking-tighter leading-[1.05] mb-6 bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
             What Our Clients Say.
           </h2>
-          <p className="text-steel-grey font-medium text-xs sm:text-sm max-w-xl mx-auto opacity-80">
+          <p className="text-slate-600 font-medium text-xs sm:text-sm max-w-xl mx-auto opacity-80">
             Trusted by developers, government agencies, and infrastructure leaders across Kenya.
           </p>
         </div>
@@ -84,8 +84,8 @@ const TestimonialsSection = () => {
               >
                 <div className="relative z-10">
                   {/* Quote Icon */}
-                  <div className="text-primary/10 absolute -top-4 -left-4 text-6xl font-serif leading-none select-none">“</div>
-                  <p className="text-text-main text-sm leading-relaxed font-medium mb-8 italic relative z-10">
+                  <div className="text-primary/15 absolute -top-4 -left-4 text-6xl font-serif leading-none select-none opacity-70">“</div>
+                  <p className="text-slate-800 text-sm leading-relaxed font-medium mb-8 italic relative z-10">
                     "{t.content}"
                   </p>
                   
@@ -94,7 +94,7 @@ const TestimonialsSection = () => {
                       {t.avatar}
                     </div>
                     <div>
-                      <h4 className="font-black text-text-main text-xs tracking-tight">{t.name}</h4>
+                      <h4 className="font-black text-slate-900 text-xs tracking-tight">{t.name}</h4>
                       <p className="text-primary font-bold text-[9px] uppercase tracking-widest">{t.role}</p>
                     </div>
                   </div>

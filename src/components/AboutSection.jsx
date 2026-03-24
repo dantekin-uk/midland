@@ -25,9 +25,9 @@ const AboutSection = () => {
   return (
     <section className="pt-40 pb-8 bg-gradient-to-br from-white via-bg-light/30 to-white overflow-hidden relative">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-steel-grey/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-60"> {/* Increased overall opacity of decorative elements */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div> {/* Increased opacity */}
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-steel-grey/10 rounded-full blur-3xl"></div> {/* Increased opacity */}
       </div>
 
       <div className="relative z-10">
@@ -51,13 +51,13 @@ const AboutSection = () => {
               </h2>
 
               {/* Description */}
-              <p className="text-sm text-steel-grey leading-relaxed mb-7 font-medium max-w-xl">
+              <p className="text-sm text-slate-700 leading-relaxed mb-7 font-medium max-w-xl">
                 We take a technically superior and commercially balanced approach to all our work,
                 providing clients with specific and practical solutions that deliver real value.
               </p>
 
               {/* Features Grid */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-12">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-12 text-slate-700">
                 {[
                   { title: "Timely & High-Quality", desc: "Precision-focused delivery" },
                   { title: "Cost-Effective Solutions", desc: "Efficiency & savings" },
@@ -72,8 +72,8 @@ const AboutSection = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-text-main mb-0.5 sm:mb-1 tracking-tight text-[11px] sm:text-xs leading-tight">{item.title}</h4>
-                        <p className="text-steel-grey text-[9px] sm:text-[11px] font-medium leading-tight">{item.desc}</p>
+                        <h4 className="font-semibold text-slate-800 mb-0.5 sm:mb-1 tracking-tight text-[11px] sm:text-xs leading-tight">{item.title}</h4>
+                        <p className="text-slate-600 text-[9px] sm:text-[11px] font-medium leading-tight">{item.desc}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -124,10 +124,10 @@ const AboutSection = () => {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-2xl font-black text-text-main">10+</div>
+                      <div className="text-2xl font-black text-slate-900">10+</div> 
                       <div className="text-xs text-steel-grey font-semibold uppercase tracking-wider">Years Experience</div>
                     </div>
-                  </div>
+                  </div> 
                 </motion.div>
 
                 {/* Decorative elements */}

@@ -87,7 +87,7 @@ const Services = () => {
               <h1 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-primary font-bold">Our Services</h1>
               <motion.p 
                 initial="hidden" animate="visible" transition={{ delay: 0.2 }} variants={fadeIn}
-                className="text-white text-sm sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md opacity-90"
+                className="text-white text-sm sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md"
               >
                 Delivering highly accurate setting out, earthwork computations, and as-built documentation to keep your complex infrastructure projects on track and on budget.
               </motion.p>
@@ -128,7 +128,7 @@ const Services = () => {
               placeholder="Search for a specific service (e.g. 'Subdivision', 'UAV')..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all font-medium text-xs sm:text-sm text-text-main"
+              className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all font-medium text-xs sm:text-sm text-slate-900"
             />
           </div>
 
@@ -187,8 +187,8 @@ const Services = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                         </div>
                         <div className="p-8 space-y-3">
-                          <h4 className="text-base font-black tracking-tight text-text-main group-hover:text-primary transition-colors">{option.title}</h4>
-                          <p className="text-slate-500 text-xs leading-relaxed font-medium">{option.desc}</p>
+                          <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors">{option.title}</h4>
+                          <p className="text-slate-600 text-xs leading-relaxed font-medium">{option.desc}</p>
                           <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest pt-2">
                             <span>View Details</span>
                             <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -218,7 +218,7 @@ const Services = () => {
                   <h2 className="text-2xl lg:text-3xl font-black tracking-tighter leading-tight bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent drop-shadow-sm">
                     {category.title}
                   </h2>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                  <p className="text-slate-600 text-sm leading-relaxed font-medium">
                     {category.description}
                   </p>
                 </motion.div>
@@ -259,8 +259,8 @@ const Services = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                           </div>
                           <div className="p-8 space-y-3">
-                            <h4 className="text-base font-black tracking-tight text-text-main group-hover:text-primary transition-colors">{option.title}</h4>
-                            <p className="text-slate-500 text-xs leading-relaxed font-medium">{option.desc}</p>
+                            <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors">{option.title}</h4>
+                            <p className="text-slate-600 text-xs leading-relaxed font-medium">{option.desc}</p>
                             <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest pt-2">
                               <span>View Details</span>
                               <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -296,7 +296,7 @@ const Services = () => {
               <h2 className="text-2xl lg:text-4xl font-black tracking-tighter leading-tight mb-4 text-white">
                 Need a Custom <span className="text-white/80">Spatial Solution?</span>
               </h2>
-              <p className="text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
+              <p className="text-sm lg:text-base mb-8 text-white/80 max-w-2xl mx-auto font-medium">
                 From broadacre cadastral surveys to complex drone photogrammetry, our team is ready to support your next major project.
               </p>
               <Link 

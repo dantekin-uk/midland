@@ -143,7 +143,7 @@ const SERVICE_DATA = {
     title: "Master Plan Topographical Surveys",
     category: "Topographical & Photogrammetry",
     heroDesc: "Capturing site features to provide foundational data for master planning.",
-    details: "Before any major development begins, you need a complete understanding of the canvas. We capture every natural and man-made feature on your site—from varying elevations to existing buildings and vegetation—providing the foundational data for architects, engineers, and urban planners.",
+    details: "Before any major development begins, you need a complete understanding of the canvas. We capture every natural and man-made feature on your site—from varying elevations to existing buildings and vegetation providing the foundational data for architects, engineers, and urban planners.",
     features: [
       { label: "Contour Mapping", desc: "Detailed illustration of land elevation and slopes." },
       { label: "Feature Extraction", desc: "Pinpointing the exact locations of trees, water bodies, roads, and existing infrastructure." },
@@ -216,7 +216,7 @@ const ServiceDetail = () => {
         <div className="relative w-full max-w-[95%] mx-auto h-[280px] sm:h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[80px] sm:rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
             <img src={data.image} alt={data.title} className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/30 to-transparent"></div>
           </div>
           
           <div className="relative z-10 h-full flex items-center px-5 sm:px-8 lg:px-12">
@@ -225,7 +225,7 @@ const ServiceDetail = () => {
 
               <motion.p 
                 initial="hidden" animate="visible" transition={{ delay: 0.2 }} variants={fadeIn}
-                className="text-white text-xs sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md opacity-90 max-w-2xl"
+                className="text-white text-xs sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md max-w-2xl"
               >
                 {data.heroDesc}
               </motion.p>
@@ -285,7 +285,7 @@ const ServiceDetail = () => {
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
                           </div>
                           <div className="space-y-1">
-                            <h4 className="text-text-main font-black text-xs sm:text-sm tracking-tight uppercase group-hover:text-primary transition-colors">{feat.label}</h4>
+                            <h4 className="text-slate-800 font-black text-xs sm:text-sm tracking-tight uppercase group-hover:text-primary transition-colors">{feat.label}</h4>
                             <p className="text-slate-500 text-[11px] sm:text-xs leading-relaxed">{feat.desc}</p>
                           </div>
                         </div>
@@ -311,7 +311,7 @@ const ServiceDetail = () => {
                   <h4 className="text-lg lg:text-xl font-black tracking-tighter leading-tight">
                     Ready to get started?
                   </h4>
-                  <p className="text-white/70 text-xs sm:text-sm leading-relaxed font-medium">
+                  <p className="text-white/80 text-xs sm:text-sm leading-relaxed font-medium">
                     Partner with Kenya's leading geospatial experts for precision-driven solutions tailored to your infrastructure needs.
                   </p>
                   
@@ -326,7 +326,7 @@ const ServiceDetail = () => {
 
                   <div className="pt-6 border-t border-white/10">
                     <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/40 mb-3">Service Standards</div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-4 text-white/70">
                       {data.specs?.slice(0, 2).map((spec, sIdx) => (
                         <div key={sIdx}>
                           <div className="text-white font-black text-xs">{spec.val}</div>
@@ -352,7 +352,7 @@ const ServiceDetail = () => {
             className="bg-slate-50/50 rounded-[2.5rem] sm:rounded-[3rem] p-6 sm:p-10 lg:p-16 border border-slate-100 relative overflow-hidden"
           >
             {/* Technical Background Accent */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" 
+            <div className="absolute top-0 left-0 w-full h-full opacity-[0.05] pointer-events-none" 
                  style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
             </div>
 
@@ -361,35 +361,35 @@ const ServiceDetail = () => {
                 <h3 className="text-xl lg:text-2xl font-black tracking-tighter leading-tight bg-gradient-to-r from-primary to-steel-grey bg-clip-text text-transparent">
                   Have a specific question about this service?
                 </h3>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
                   Provide your project details below and our technical lead for <span className="text-primary font-bold">{data.category}</span> will contact you within 24 hours.
                 </p>
               </div>
 
               <div className="w-full lg:w-2/3">
                 <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
+                  <div className="space-y-2 text-slate-900">
+                    <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-600 ml-1">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="e.g. Jane Mwangi" 
-                      className="w-full px-5 py-3 sm:px-6 sm:py-4 bg-white border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-xs sm:text-sm font-medium text-text-main shadow-sm" 
+                      className="w-full px-5 py-3 sm:px-6 sm:py-4 bg-white border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-xs sm:text-sm font-medium text-slate-900 shadow-sm" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Work Email</label>
+                    <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-600 ml-1">Work Email</label>
                     <input 
                       type="email" 
                       placeholder="jane@company.co.ke" 
-                      className="w-full px-5 py-3 sm:px-6 sm:py-4 bg-white border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-xs sm:text-sm font-medium text-text-main shadow-sm" 
+                      className="w-full px-5 py-3 sm:px-6 sm:py-4 bg-white border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-xs sm:text-sm font-medium text-slate-900 shadow-sm" 
                     />
                   </div>
                   <div className="sm:col-span-2 space-y-2">
-                    <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Project Scope or Question</label>
+                    <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-600 ml-1">Project Scope or Question</label>
                     <textarea 
                       rows="4" 
                       placeholder={`Tell us about your requirements for ${data.title}...`} 
-                      className="w-full px-5 py-3 sm:px-6 sm:py-4 bg-white border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-xs sm:text-sm font-medium text-text-main shadow-sm resize-none"
+                      className="w-full px-5 py-3 sm:px-6 sm:py-4 bg-white border border-slate-100 rounded-2xl focus:ring-4 focus:ring-primary/5 focus:border-primary/20 outline-none transition-all text-xs sm:text-sm font-medium text-slate-900 shadow-sm resize-none"
                     ></textarea>
                   </div>
                   <div className="sm:col-span-2 pt-2">
@@ -450,8 +450,8 @@ const ServiceDetail = () => {
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent"></div>
                     </div>
                     <div className="p-8">
-                      <h4 className="text-base font-black tracking-tight text-text-main group-hover:text-primary transition-colors mb-2">{service.title}</h4>
-                      <p className="text-slate-500 text-xs leading-relaxed line-clamp-2">{service.heroDesc}</p>
+                      <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors mb-2">{service.title}</h4>
+                      <p className="text-slate-600 text-xs leading-relaxed line-clamp-2">{service.heroDesc}</p>
                     </div>
                   </Link>
                 </motion.div>

@@ -12,9 +12,9 @@ const Home = () => {
     <div className="min-h-screen bg-white relative selection:bg-primary/10 selection:text-primary">
       {/* Premium Ambient Background Blobs */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-steel-grey/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] right-[-10%] w-[30%] h-[30%] bg-primary/3 rounded-full blur-[80px]"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/15 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-steel-grey/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[40%] right-[-10%] w-[30%] h-[30%] bg-primary/10 rounded-full blur-[80px]"></div>
       </div>
 
       {/* Subtle Noise Texture Overlay */}
@@ -50,7 +50,7 @@ const Home = () => {
               <h2 className="text-2xl lg:text-4xl font-black tracking-tighter leading-tight mb-4 text-white">
                 Ready to Start Your <br className="sm:hidden" /> <span className="text-white/80">Project?</span>
               </h2>
-              <p className="text-xs sm:text-sm lg:text-base mb-8 text-white/70 max-w-2xl mx-auto font-medium">
+              <p className="text-xs sm:text-sm lg:text-base mb-8 text-white/80 max-w-2xl mx-auto font-medium">
                 Partner with Kenya's leading geospatial experts for precision-driven solutions tailored to your infrastructure needs.
               </p>
               <Link 

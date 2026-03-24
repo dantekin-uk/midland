@@ -46,14 +46,14 @@ const ServicesOverview = () => {
   return (
     <section className="pt-10 pb-16 bg-slate-50/50 relative overflow-hidden border-y border-slate-100">
       {/* Background Pattern - Subtle Technical Grid */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
       {/* Background Accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[60%] bg-primary/5 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[60%] bg-steel-grey/5 rounded-full blur-[120px]"></div>
+        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[60%] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[60%] bg-steel-grey/10 rounded-full blur-[120px]"></div>
       </div>
 
       <div className="w-full max-w-[95%] mx-auto px-4 relative z-10">
