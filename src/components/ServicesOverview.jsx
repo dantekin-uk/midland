@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import surveying from '../assets/services/ser1.jpg'
 import engineering from '../assets/services/ser2.jpg'
 import photogrammetry from '../assets/services/ser3.jpg'
+import image from '../assets/services/proj1.jpg' 
+import { i } from 'framer-motion/client'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,7 +33,7 @@ const services = [
   {
     title: "Engineering Surveying",
     desc: "Ensuring accuracy, compliance, and efficiency throughout the construction and development project lifecycle.",
-    image: engineering,
+    image: image,
     link: "/services/engineering"
   },
   {
