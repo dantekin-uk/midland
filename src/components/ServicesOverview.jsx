@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import surveying from '../assets/services/ser1.jpg'
-import engineering from '../assets/services/ser2.jpg'
 import photogrammetry from '../assets/services/ser3.jpg'
 import image from '../assets/services/proj1.jpg' 
 import { i } from 'framer-motion/client'
@@ -25,26 +24,42 @@ const itemVariants = {
 
 const services = [
   {
-    title: "Cadastral Surveying",
-    desc: "Accurately defining legal boundaries and land ownership rights for land management and urban planning.",
+    title: "Professional Land Surveying Services",
+    desc: " Land subdivision, amalgamation, and sectional properties. Professional RIM boundary re-establishment and pre-purchase due diligence.",
     image: surveying,
-    link: "/services/cadastral"
+    link: "/services#cadastral"
   },
   {
     title: "Engineering Surveying",
-    desc: "Ensuring accuracy, compliance, and efficiency throughout the construction and development project lifecycle.",
+    desc: "Precision geodetic networks, topographic surveys, and civil set-outs for buildings, bridges, and road infrastructure.",
     image: image,
-    link: "/services/engineering"
+    link: "/services#engineering"
   },
   {
     title: "UAV Photogrammetry",
-    desc: "Delivering geospatial solutions through state-of-the-art UAV technology paired with an extensive array of sensors.",
+    desc: "High-resolution orthomosaics and mine volume analysis using state-of-the-art UAV technology for construction progress monitoring.",
     image: photogrammetry,
-    link: "/services/photogrammetry"
+    link: "/services#photogrammetry"
   }
 ]
 
 const ServicesOverview = () => {
+  const navigate = useNavigate();
+
+  const handleServiceClick = (serviceLink) => {
+    const [path, hash] = serviceLink.split('#');
+    
+    // Navigate to services page
+    navigate(path);
+    
+    // Scroll to the specific section after page loads
+    setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300); // Increased delay to ensure page is loaded
+  }
   return (
     <section className="pt-10 pb-16 bg-slate-50/50 relative overflow-hidden border-y border-slate-100">
       {/* Background Pattern - Subtle Technical Grid */}
@@ -79,9 +94,9 @@ const ServicesOverview = () => {
               variants={itemVariants}
               className="group min-w-[85%] md:min-w-0 snap-center"
             >
-              <Link 
-                to={service.link}
-                className="relative block h-[260px] sm:h-[300px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-black/5 transition-all duration-700 ease-[0.22, 1, 0.36, 1] hover:shadow-primary/20 hover:-translate-y-2"
+              <div 
+                className="relative block h-[260px] sm:h-[300px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-black/5 transition-all duration-700 ease-[0.22, 1, 0.36, 1] hover:shadow-primary/20 hover:-translate-y-2 cursor-pointer group"
+                onClick={() => handleServiceClick(service.link)}
               >
                 {/* Image with subtle zoom */}
                 <img 
@@ -109,9 +124,16 @@ const ServicesOverview = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 text-white font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em]">
-                      <span className="w-6 h-[2px] bg-white/40 group-hover:w-10 group-hover:bg-white transition-all duration-500"></span>
-                      Learn More
+                    {/* Enhanced Learn More Button */}
+                    <div className="flex items-center gap-3 text-white font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] group">
+                      <span className="w-6 h-[2px] bg-amber-400/60 group-hover:w-10 group-hover:bg-amber-400 transition-all duration-500"></span>
+                      <span className="relative">
+                        Learn More
+                        <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -122,7 +144,7 @@ const ServicesOverview = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                   </svg>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </motion.div>

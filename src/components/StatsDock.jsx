@@ -110,22 +110,24 @@ const StatsDock = () => {
   ]
 
   return (
-    <div className="w-full max-w-[95%] mx-auto px-4">
-      <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/20 overflow-hidden grid grid-cols-2 lg:grid-cols-4 divide-slate-100 lg:divide-x">
+    <div className="w-full max-w-[95%] mx-auto px-2 sm:px-3 md:px-4">
+      <div className="bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-white/20 overflow-hidden grid grid-cols-2 lg:grid-cols-4 divide-slate-100 lg:divide-x">
         {stats.map((stat, index) => (
-          <div key={index} className="group flex flex-col items-center lg:items-start text-center lg:text-left p-6 sm:p-8 hover:bg-white hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 cursor-default relative z-10 hover:z-20">
-            <div className="flex items-center gap-3 mb-3">
-              <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center ${stat.color} group-hover:scale-110 group-hover:rotate-3 ${stat.hoverBg} group-hover:text-white transition-all duration-500 shadow-sm`}>
-                {stat.icon}
+          <div key={index} className="group flex flex-col items-center lg:items-start text-center lg:text-left p-3 sm:p-4 md:p-5 lg:p-6 hover:bg-white hover:shadow-xl hover:shadow-black/5 transition-all duration-500 cursor-default relative z-10 hover:z-20">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+              <div className={`w-6 h-6 sm:w-8 sm:h-10 rounded-lg sm:rounded-xl ${stat.bg} flex items-center justify-center ${stat.color} group-hover:scale-110 group-hover:rotate-3 ${stat.hoverBg} group-hover:text-white transition-all duration-500 shadow-sm`}>
+                <svg className="w-3 h-3 sm:w-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {stat.icon.props.children}
+                </svg>
               </div>
-              <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter leading-none">
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-slate-900 tracking-tighter leading-none">
                 <Counter targetValue={stat.value} />
               </span>
             </div>
-            <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] font-bold text-slate-500 uppercase tracking-widest">
               {stat.label}
             </span>
-            <span className="hidden sm:block text-[10px] text-slate-600 font-medium mt-1 opacity-70">
+            <span className="hidden sm:block text-[8px] sm:text-[9px] md:text-[10px] text-slate-600 font-medium mt-0.5 sm:mt-1 opacity-70">
               {stat.desc}
             </span>
           </div>

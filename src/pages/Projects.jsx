@@ -215,43 +215,44 @@ const Projects = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative pt-24 px-4 lg:px-6">
-        <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
+      <section className="relative pt-16 sm:pt-20 md:pt-24 px-4 lg:px-6">
+        <div className="relative w-full max-w-[95%] mx-auto h-[250px] sm:h-[180px] md:h-[220px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[80px] sm:rounded-br-[120px] lg:rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={topography} alt="Our Projects" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/30 to-transparent"></div>
+            <img src={topography} alt="Our Projects" className="w-full h-full object-cover object-center" loading="eager" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-900/50"></div>
           </div>
           
-          <div className="relative z-10 h-full flex items-center px-6 lg:px-12">
-            <div className="max-w-3xl space-y-6">
-              <h1 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-primary font-bold">Portfolio</h1>
+          <div className="relative z-10 h-full flex items-end pb-8 sm:pb-6 md:pb-8 px-3 sm:px-4 md:px-6 lg:px-12 lg:items-center lg:pb-4">
+            <div className="max-w-full sm:max-w-md md:max-w-lg lg:max-w-2xl space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+              <h1 className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.3em] text-primary font-bold">Portfolio</h1>
 
               <motion.p 
                 initial="hidden" animate="visible" transition={{ delay: 0.2 }} variants={fadeIn}
-                className="text-white text-sm sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md"
+                className="text-white text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-xl font-semibold leading-tight sm:leading-relaxed drop-shadow-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl"
               >
                 Showcasing our commitment to precision and technical excellence across Kenya's most vital infrastructure developments and land management projects.
               </motion.p>
 
               <motion.div
                 initial="hidden" animate="visible" transition={{ delay: 0.3 }} variants={fadeIn}
-                className="flex justify-start pt-2"
+                className="flex justify-start pt-0 sm:pt-1 md:pt-2 lg:pt-2"
               >
                 <button 
                   onClick={() => document.getElementById('projects-content')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group relative bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-xs tracking-widest uppercase hover:opacity-90 transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-primary/25 overflow-hidden"
+                  className="group relative bg-primary text-white px-2 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-bold text-[5px] sm:text-[6px] md:text-[8px] lg:text-[10px] tracking-widest uppercase hover:opacity-90 transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-primary/25 overflow-hidden"
                 >
-                  <span className="relative z-10">Explore Projects</span>
+                  <span className="relative z-10 whitespace-nowrap">Explore Projects</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
                 </button>
               </motion.div>
             </div>
           </div>
         </div>
+        
       </section>
 
       {/* 2. Main Content Area - Styled to avoid touching Hero and Footer */}
-      <div id="projects-content" className="max-w-[95%] mx-auto py-12 lg:py-24">
+      <div id="projects-content" className="max-w-[95%] mx-auto pt-2 sm:pt-4 md:pt-6 lg:pt-12 pb-12 lg:pb-24">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 relative">
           
           {/* Mobile Map View - Positioned at top on mobile for context */}

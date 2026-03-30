@@ -13,6 +13,7 @@ import titledeed from '../assets/servicesoptions/tit.jpg';
 import dispute from '../assets/servicesoptions/dis.webp';
 import modeling from '../assets/servicesoptions/doc.jpg';
 import data from '../assets/servicesoptions/dt.jpg';
+import topography from '../assets/servicesoptions/topography.jpg';
 
 import photogrammetryUAV from '../assets/services/ser3.jpg';
 
@@ -22,161 +23,213 @@ const fadeIn = {
 };
 
 const SERVICE_DATA = {
-  "boundary-definition": {
-    title: "Boundary Definition & Re-establishment",
-    category: "Cadastral & Legal Surveying",
-    heroDesc: "Clear, legally recognized property boundaries are the foundation of any secure land investment.",
-    details: "Clear, legally recognized property boundaries are the foundation of any secure land investment. Whether you are purchasing new land, resolving an encroachment issue, or simply need to locate missing beacons, our licensed surveyors provide total clarity in strict compliance with national statutory regulations.",
+  "land-subdivision": {
+    title: "Land Subdivision",
+    category: "Professional Land Surveying",
+    heroDesc: "Strategic parceling of land for residential, commercial, or agricultural development.",
+    details: "Strategic land development begins with precise parceling. Whether you are creating a residential estate, a commercial park, or agricultural blocks, our subdivision services ensure your land is divided to maximize utility while adhering to all physical planning and legal requirements for individual title issuance.",
     features: [
-      { label: "Beacon Replacement", desc: "Accurate restoration of lost, buried, or moved boundary markers." },
-      { label: "Pre-Purchase Verification", desc: "Confirming exact acreage and dimensions before finalizing land transactions to protect your investment." },
-      { label: "Statutory Compliance", desc: "All boundary work is executed to the exact legal standards required by the Land Surveyors' Board (LSB)." }
-    ],
-    image: boundary,
-    specs: [ { label: "Accuracy", val: "±20mm" }, { label: "Standard", val: "LSB Regulated" }, { label: "Tech", val: "GNSS/RTK" } ]
-  },
-  "land-subdivisions": {
-    title: "Land Subdivision & Consolidation",
-    category: "Cadastral & Legal Surveying",
-    heroDesc: "Strategic spatial and legal process of altering property boundaries to maximize land value.",
-    details: "Whether you are a developer looking to maximize land value or a family dividing an estate, we handle the entire spatial and legal process of altering property boundaries. We ensure your subdivision design or consolidation aligns perfectly with local zoning laws and physical planning requirements.",
-    features: [
-      { label: "Subdivision Design", desc: "Strategic parceling of large tracts of land for residential, commercial, or agricultural development." },
-      { label: "Land Consolidation", desc: "Merging adjacent parcels into a single, legally recognized title." },
-      { label: "Mutation Forms", desc: "Preparation and submission of the precise technical documents required by the Land Registry." }
+      { label: "Development Strategy", desc: "Optimized parceling for residential and commercial growth." },
+      { label: "Title Readiness", desc: "Ensuring every new parcel is prepared for independent legal registration." },
+      { label: "Planning Compliance", desc: "Strict adherence to local physical planning and land acts." }
     ],
     image: subdivision,
-    specs: [ { label: "Deliverable", val: "Deed Plans" }, { label: "Compliance", val: "Town Planning" }, { label: "Capacity", val: "1000+ Ha" } ]
+    specs: [ { label: "Accuracy", val: "±30mm" }, { label: "Regulated", val: "LSB & Min. of Lands" } ]
   },
-  "title-deed-processing": {
-    title: "Title Deed Processing Surveys",
-    category: "Cadastral & Legal Surveying",
-    heroDesc: "Highly accurate surveying required to process, update, or amend title deeds.",
-    details: "Navigating the legalities of land ownership requires exact data. We bridge the gap between your physical property and the Ministry of Lands by providing the highly accurate surveying required to process, update, or amend title deeds.",
+  "land-amalgamation": {
+    title: "Land Amalgamation",
+    category: "Professional Land Surveying",
+    heroDesc: "Merging adjacent parcels into a single, legally recognized title.",
+    details: "Unlock greater development potential by consolidating your holdings. Land amalgamation involves the seamless merging of adjacent parcels into a single, unified title. This process simplifies land management, enhances property value for large projects, and streamlines building approval processes.",
     features: [
-      { label: "New Allocations", desc: "Surveying un-alienated land for the issuance of new grants." },
-      { label: "Registry Index Mapping (RIM)", desc: "Updating official government maps to reflect new subdivisions or boundary changes." },
-      { label: "Lease Extensions", desc: "Providing the necessary spatial documentation for renewing land leases." }
+      { label: "Title Consolidation", desc: "Merging multiple deeds into a single, clean legal entity." },
+      { label: "Site Optimization", desc: "Removing internal boundaries to maximize buildable area." },
+      { label: "Registry Coordination", desc: "Managing technical updates with the Land Registry." }
+    ],
+    image: boundary,
+    specs: [ { label: "Process", val: "Statutory Legal Merge" }, { label: "Standard", val: "LSB Compliant" } ]
+  },
+  "sectional-properties-survey": {
+    title: "Sectional Properties Survey",
+    category: "Professional Land Surveying",
+    heroDesc: "Division of buildings into units to be owned by individual proprietors.",
+    details: "We specialize in the complex division of buildings into individual units and common property. Our surveys ensure that units are accurately defined for individual ownership, while common areas are correctly designated to be owned by proprietors of the units as tenants in common.",
+    features: [
+      { label: "Unit Mapping", desc: "Precise spatial definition of private apartment/office units." },
+      { label: "Common Area Designation", desc: "Clear demarcation of shared utility and access zones." },
+      { label: "Act Compliance", desc: "Fully aligned with the Sectional Properties Act 2020." }
     ],
     image: titledeed,
-    specs: [ { label: "Authority", val: "Min. of Lands" }, { label: "Format", val: "RIM/FR" }, { label: "Support", val: "Full Legal" } ]
+    specs: [ { label: "Accuracy", val: "±10mm (Internal)" }, { label: "Title Type", val: "Sectional Title Deed" } ]
   },
-  "dispute-resolution": {
-    title: "Dispute Resolution Surveys",
-    category: "Cadastral & Legal Surveying",
-    heroDesc: "Expert, impartial surveying services to resolve land disputes quickly and fairly.",
-    details: "When boundary conflicts arise, you need objective, indisputable data. We provide expert, impartial surveying services to help landowners, legal teams, and the courts resolve land disputes quickly and fairly.",
+  "boundary-re-establishment": {
+    title: "Boundary Re-establishment (RIM)",
+    category: "Professional Land Surveying",
+    heroDesc: "Placing boundaries as per the RIM to indicate accurate ground locations.",
+    details: "Clear, legally recognized property boundaries are the foundation of secure land investment. We precisely place boundaries as per the Registry Index Map (RIM) to indicate accurate ground locations. This service is essential for resolving encroachments and avoiding future boundary disputes.",
     features: [
-      { label: "Encroachment Analysis", desc: "Precisely measuring and documenting overlapping structures or fences." },
-      { label: "Expert Witness Representation", desc: "Providing professional, legally sound testimony based on accurate geospatial data." },
-      { label: "Historical Data Comparison", desc: "Analyzing old deed plans against current ground realities." }
+      { label: "Beacon Restoration", desc: "Accurate replacement of lost or moved boundary markers." },
+      { label: "RIM Alignment", desc: "Ensuring ground locations match official Registry Index Maps." },
+      { label: "Dispute Resolution", desc: "Providing technical evidence to settle boundary conflicts." }
+    ],
+    image: boundary,
+    specs: [ { label: "Accuracy", val: "±20mm" }, { label: "Standard", val: "LSB Regulated" } ]
+  },
+  "land-acquisition-expert-witness": {
+    title: "Land Acquisition & Expert Witness",
+    category: "Professional Land Surveying",
+    heroDesc: "Expert witness representation on land acquisition and value negotiations.",
+    details: "Navigating land disputes and utility route acquisitions requires technical and legal authority. We provide expert witness representation for land acquisition, boundary disputes, and land value negotiations, ensuring your interests are protected in tribunals and legal settings.",
+    features: [
+      { label: "Expert Testimony", desc: "Providing professional technical evidence in land courts." },
+      { label: "Utility Route Planning", desc: "Surveying for pipelines, powerlines, and wayleaves." },
+      { label: "Negotiation Support", desc: "Data-driven advice for land value and compensation." }
     ],
     image: dispute,
-    specs: [ { label: "Role", val: "Expert Witness" }, { label: "Evidence", val: "Court-Ready" }, { label: "Standard", val: "Professional Ethics" } ]
+    specs: [ { label: "Authority", val: "Certified Expert Witness" }, { label: "Scope", val: "Legal & Technical Advisory" } ]
   },
-  "construction-setting-out": {
-    title: "Construction Setting Out",
-    category: "Engineering & Infrastructure Surveying",
-    heroDesc: "Flawless translation of architectural and engineering design to reality.",
-    details: "A successful construction project relies on a flawless translation of design to reality. We take architectural and engineering blueprints and mark their exact, millimeter perfect positions on the ground, ensuring your contractors build exactly where they are supposed to.",
+  "due-diligence-verification": {
+    title: "Due Diligence & Pre-purchase Verification",
+    category: "Professional Land Surveying",
+    heroDesc: "Investigating the legal status of property to protect your investment.",
+    details: "Protect your investment before finalizing any transaction. We investigate the legal status of a property, including title ownership searches, zoning regulations, and encroachment verifications. We confirm the exact acreage and dimensions on the ground to ensure complete transparency.",
     features: [
-      { label: "Foundation Positioning", desc: "Precise pegging for building corners, columns, and structural grids." },
-      { label: "Infrastructure Alignment", desc: "Setting out centerlines and limits for roads, drainage, and utilities." },
-      { label: "Vertical Control", desc: "Establishing accurate datum points and benchmarks for level control throughout the project lifecycle." }
-    ],
-    image: engineering, // Assuming 'engineering.jpg' is for Construction Setting Out
-    specs: [ { label: "Accuracy", val: "±5mm" }, { label: "Instruments", val: "Total Station" }, { label: "Support", val: "24/7 On-site" } ]
-  },
-  "as-built-surveys": {
-    title: "As-Built Surveys & Documentation",
-    category: "Engineering & Infrastructure Surveying",
-    heroDesc: "Mapping finished structures and comparing them against original designs.",
-    details: "Once construction is complete, it is critical to verify the final product. We conduct comprehensive as-built surveys to map the exact locations of finished structures, underground utilities, and road networks, comparing them against the original design.",
-    features: [
-      { label: "Utility Mapping", desc: "Recording the exact placement of pipes, cables, and sewage lines before they are buried." },
-      { label: "Compliance Verification", desc: "Ensuring the finished construction meets all regulatory and design tolerances." },
-      { label: "Facility Management Data", desc: "Providing accurate blueprints for future maintenance, renovations, or expansions." }
+      { label: "Acreage Confirmation", desc: "Independent verification of land size before purchase." },
+      { label: "Encroachment Checks", desc: "Identifying if structures cross official boundaries." },
+      { label: "Zoning Verification", desc: "Confirming the land's permitted use and restrictions." }
     ],
     image: documentation,
-    specs: [ { label: "Deliverable", val: "As-Built CAD" }, { label: "Detail", val: "High Density" }, { label: "Format", val: "BIM Ready" } ]
+    specs: [ { label: "Verification", val: "100% Risk Audit" }, { label: "Status", val: "Pre-purchase Certified" } ]
   },
-  "earthworks-computation": {
-    title: "Earthworks & Volume Computations",
-    category: "Engineering & Infrastructure Surveying",
-    heroDesc: "Highly accurate cut-and-fill calculations for efficient resource management.",
-    details: "Moving earth is expensive. We provide contractors and developers with highly accurate cut-and-fill calculations, allowing for precise budget estimations and efficient resource management during site grading or mining operations.",
+  "geodetic-control-networks": {
+    title: "Geodetic Control Networks",
+    category: "Engineering Surveying",
+    heroDesc: "Establishing high-accuracy spatial frameworks for large-scale projects.",
+    details: "The foundation of every major engineering project is a precise coordinate system. We establish geodetic survey control networks that provide a stable, high-accuracy spatial framework, ensuring all subsequent project phases—from design to construction—are perfectly aligned.",
     features: [
-      { label: "Pre- and Post-Excavation Surveys", desc: "Measuring the site before and after earthmoving to calculate exact volumes." },
-      { label: "Stockpile Measurement", desc: "Accurately determining the volume of mined materials, gravel, or soil reserves." },
-      { label: "Terrain Leveling", desc: "Generating precise grading plans to achieve optimal site drainage." }
+      { label: "Primary Control", desc: "Establishing permanent, high-precision survey markers." },
+      { label: "Coordinate Stability", desc: "Ensuring consistent data across massive project areas." },
+      { label: "GNSS Integration", desc: "Utilizing satellite technology for millimeter-level accuracy." }
     ],
-    image: earthworks,
-    specs: [ { label: "Precision", val: "Volumetric" }, { label: "Software", val: "Civil 3D" }, { label: "Output", val: "PDF/CSV" } ]
-  },
-  "road-pipeline-profiling": {
-    title: "Road, Railway & Pipeline Profiling",
-    category: "Engineering & Infrastructure Surveying",
-    heroDesc: "Essential surveying support for linear infrastructure projects.",
-    details: "Linear infrastructure projects require continuous, high-accuracy data over long distances. We provide the essential surveying support for the planning, design, and construction of transport and utility networks.",
-    features: [
-      { label: "Route Selection", desc: "Topographical mapping to determine the most efficient and cost-effective alignments." },
-      { label: "Longitudinal & Cross Sections", desc: "Detailed profiling of the terrain to guide gradient design and earthworks." },
-      { label: "Right-of-Way Surveying", desc: "Defining the legal corridors required for infrastructure development." }
-    ],
-    image: roadpipeline,
-    specs: [ { label: "Scale", val: "Linear KM" }, { label: "Profile", val: "Long/Cross" }, { label: "Standard", val: "KeNHA/KURA" } ]
-  },
-  "uav-photogrammetry": {
-    title: "UAV Drone Mapping & Photogrammetry",
-    category: "Topographical & Photogrammetry",
-    heroDesc: "Harnessing aerial technology for rapid mapping of large or complex terrains.",
-    details: "Harnessing the power of aerial technology, we capture massive amounts of high-resolution spatial data in a fraction of the time required by traditional methods. This allows for rapid, cost-effective mapping of large, inaccessible, or complex terrains.",
-    features: [
-      { label: "High-Resolution Orthomosaics", desc: "Generating highly detailed, distortion-free aerial maps." },
-      { label: "Rapid Site Assessment", desc: "Quickly capturing the current state of a development site or agricultural block." },
-      { label: "Progress Monitoring", desc: "Periodic drone flights to track construction milestones visually." }
-    ],
-    image: photogrammetryUAV,
-    specs: [ { label: "GSD", val: "1.5cm/px" }, { label: "Output", val: "3D Models" }, { label: "Platform", val: "Fixed Wing/Multi" } ]
+    image: engineering,
+    specs: [ { label: "Accuracy", val: "±5mm (H/V)" }, { label: "Standard", val: "Geodetic Grade" } ]
   },
   "topographic-surveys": {
-    title: "Master Plan Topographical Surveys",
-    category: "Topographical & Photogrammetry",
-    heroDesc: "Capturing site features to provide foundational data for master planning.",
-    details: "Before any major development begins, you need a complete understanding of the canvas. We capture every natural and man-made feature on your site—from varying elevations to existing buildings and vegetation providing the foundational data for architects, engineers, and urban planners.",
+    title: "Topographic Surveys",
+    category: "Engineering Surveying",
+    heroDesc: "Mapping existing site conditions to inform design and planning.",
+    details: "Understand the \"lay of the land\" before you build. Our topographic surveys map all existing conditions of a site, including natural features, man-made structures, and elevation changes, providing the detailed data essential for architectural and engineering design.",
     features: [
-      { label: "Contour Mapping", desc: "Detailed illustration of land elevation and slopes." },
-      { label: "Feature Extraction", desc: "Pinpointing the exact locations of trees, water bodies, roads, and existing infrastructure." },
-      { label: "Design Foundation", desc: "Supplying precise CAD-ready files that serve as the base layer for all design work." }
+      { label: "Terrain Mapping", desc: "Detailed contour and elevation data collection." },
+      { label: "Feature Inventory", desc: "Identifying all existing trees, utilities, and structures." },
+      { label: "Design Readiness", desc: "Providing CAD-ready data for engineers and architects." }
     ],
-    image: roadpipeline,
-    specs: [ { label: "Format", val: "DWG/DXF" }, { label: "Interval", val: "0.5m Contours" }, { label: "Detail", val: "All-Feature" } ]
+    image: topography,
+    specs: [ { label: "Detail", val: "High-density point capture" }, { label: "Output", val: "2D/3D CAD & Contours" } ]
   },
-  "3d-terrain-modeling": {
-    title: "3D Terrain Modeling (DTM/DEM)",
-    category: "Topographical & Photogrammetry",
-    heroDesc: "Rich, digital, three-dimensional representations of the earth's surface.",
-    details: "We go beyond flat maps to create rich, digital, three-dimensional representations of the earth's surface. These models are crucial for advanced engineering design, environmental analysis, and visual planning.",
+  "civil-construction-setout": {
+    title: "Civil & Construction Set-out",
+    category: "Engineering Surveying",
+    heroDesc: "Ensuring accuracy for buildings, bridges, and road infrastructure.",
+    details: "We translate your engineering designs into reality with perfect precision. From civil set-outs for residential subdivisions—including earthworks, services, and kerb and channel—to major structural set-outs for buildings and bridges, we ensure every element is built exactly where it should be.",
     features: [
-      { label: "Digital Elevation Models (DEM)", desc: "Bare-earth models essential for hydrological and drainage analysis." },
-      { label: "Digital Terrain Models (DTM)", desc: "Incorporating breaklines and spatial features for complex engineering calculations." },
-      { label: "Slope & Runoff Analysis", desc: "Utilizing 3D data to predict water flow and prevent flooding on development sites." }
+      { label: "Structural Positioning", desc: "Precision marking for building and bridge foundations." },
+      { label: "Infrastructure Layout", desc: "Setting out roads, drainage, and utility networks." },
+      { label: "Earthworks Control", desc: "Guiding excavation and grading for site preparation." }
+    ],
+    image: engineering,
+    specs: [ { label: "Accuracy", val: "±5mm to ±15mm" }, { label: "Equipment", val: "Robotic Total Station / RTK" } ]
+  },
+  "as-constructed-surveys": {
+    title: "As-Constructed Surveys",
+    category: "Engineering Surveying",
+    heroDesc: "Final mapping and verification of completed infrastructure.",
+    details: "The \"As-Built\" survey is the final validation of your project. We provide a detailed map of the finished conditions of the site, confirming that all infrastructure has been installed according to design and providing critical documentation for project handover.",
+    features: [
+      { label: "Utility Verification", desc: "Precise mapping of installed underground services." },
+      { label: "Compliance Checks", desc: "Confirming the build matches the approved design." },
+      { label: "Asset Mapping", desc: "Creating high-detail records for future maintenance." }
+    ],
+    image: documentation,
+    specs: [ { label: "Reporting", val: "CAD/GIS Integrated" }, { label: "Precision", val: "Standard Engineering Spec" } ]
+  },
+  "monitoring-volume-surveys": {
+    title: "Monitoring & Volume Surveys",
+    category: "Engineering Surveying",
+    heroDesc: "Precise tracking of structural movement and earthwork quantities.",
+    details: "Safety and cost-control depend on accurate measurement. We provide structural monitoring to detect ground or building movement over time, alongside volume surveys for accurate calculation of earthworks, excavations, and stockpiles.",
+    features: [
+      { label: "Structural Monitoring", desc: "High-frequency tracking of building deformation." },
+      { label: "Volume Calculation", desc: "Precise measurement of stockpiles and excavation." },
+      { label: "Progress Auditing", desc: "Independent verification of material moved on-site." }
+    ],
+    image: earthworks,
+    specs: [ { label: "Accuracy", val: "Millimeter Monitoring" }, { label: "Volumetric", val: "±1-3% Error Margin" } ]
+  },
+  "high-resolution-orthomosaics": {
+    title: "High-Resolution Orthomosaics",
+    category: "UAV Photogrammetry",
+    heroDesc: "Measurable, distortion-free aerial maps for rapid site intelligence.",
+    details: "Leverage advanced UAV technology to see your project in unprecedented detail. Our photogrammetrists generate high-resolution orthomosaics—distortion-free aerial maps that allow for precise measurements and detailed site analysis across urban and rural landscapes.",
+    features: [
+      { label: "Aerial Intelligence", desc: "Survey-grade visual data for large project areas." },
+      { label: "Geometric Precision", desc: "Maps that allow for direct, accurate measurement." },
+      { label: "Rapid Turnaround", desc: "Faster data collection than traditional methods." }
+    ],
+    image: photogrammetryUAV,
+    specs: [ { label: "GSD", val: "< 2cm/pixel" }, { label: "Technology", val: "Multi-rotor/Fixed-wing UAV" } ]
+  },
+  "mine-quarry-volumes": {
+    title: "Mine & Quarry Volumes",
+    category: "UAV Photogrammetry",
+    heroDesc: "Rapid and accurate volumetric analysis for resource extraction sites.",
+    details: "Safety and efficiency are critical in mining environments. Our UAV-based volumetric surveys allow us to calculate monthly extraction volumes and stockpile quantities safely, without the need for ground personnel to enter hazardous areas.",
+    features: [
+      { label: "Safe Data Collection", desc: "Mapping hazardous slopes from the air." },
+      { label: "Extraction Auditing", desc: "Accurate monthly reporting of material moved." },
+      { label: "Inventory Control", desc: "Precise volume calculations for all stockpiles." }
     ],
     image: modeling,
-    specs: [ { label: "Mesh", val: "Triangulated" }, { label: "Analysis", val: "Slope/Aspect" }, { label: "Precision", val: "High-Grid" } ]
+    specs: [ { label: "Accuracy", val: "±1% to ±3% Volumetric" }, { label: "Output", val: "3D Mesh / Volumetric Report" } ]
   },
-  "gis-data-management": {
-    title: "GIS Data Collection & Management",
-    category: "Topographical & Photogrammetry",
-    heroDesc: "Turning raw spatial data into actionable intelligence for informed decisions.",
-    details: "Geographic Information Systems (GIS) turn raw spatial data into actionable intelligence. We help institutions, governments, and large agricultural operations collect, organize, and analyze geospatial data to make informed, location-based decisions.",
+  "construction-progress-monitoring": {
+    title: "Construction Progress Monitoring",
+    category: "UAV Photogrammetry",
+    heroDesc: "Visual and spatial quality assurance throughout the project lifecycle.",
+    details: "Stay on schedule and within budget with aerial progress tracking. We provide high-detail visual and spatial data that allows developers and contractors to monitor site progress, verify quality, and share real-time updates with stakeholders.",
     features: [
-      { label: "Asset Mapping", desc: "Digitally logging the exact locations of dispersed physical assets (e.g., utility poles, manholes)." },
-      { label: "Spatial Database Creation", desc: "Structuring your location data into searchable, easy-to-manage digital formats." },
-      { label: "Custom Mapping Solutions", desc: "Creating thematic maps tailored to specific analytical needs, such as land use or soil distribution." }
+      { label: "Visual Timelines", desc: "Regular aerial photos and videos of site progress." },
+      { label: "Quality Assurance", desc: "Identifying deviations from design early in the build." },
+      { label: "Stakeholder Reporting", desc: "Professional visual data for client updates." }
+    ],
+    image: engineering,
+    specs: [ { label: "Frequency", val: "Weekly/Monthly Flights" }, { label: "Detail", val: "High-definition 4K Visuals" } ]
+  },
+  "environmental-compliance": {
+    title: "Environmental Compliance",
+    category: "UAV Photogrammetry",
+    heroDesc: "Monitoring land use and ecological impact using advanced aerial sensors.",
+    details: "Infrastructure and mining projects must meet strict environmental standards. Our UAV services support environmental compliance by monitoring land-use changes, vegetation health, and ecological impacts through high-resolution multispectral and visual data.",
+    features: [
+      { label: "Land Use Tracking", desc: "Monitoring site boundaries and buffer zones." },
+      { label: "Ecological Auditing", desc: "High-detail mapping of sensitive environmental areas." },
+      { label: "Rehabilitation Monitoring", desc: "Tracking the success of site restoration efforts." }
     ],
     image: data,
-    specs: [ { label: "Software", val: "ArcGIS/QGIS" }, { label: "Database", val: "PostGIS/SQL" }, { label: "Attribute", val: "Custom Schema" } ]
+    specs: [ { label: "Analysis", val: "Multi-layer Geospatial Data" }, { label: "Standard", val: "NEMA / local regulations" } ]
+  },
+  "pre-construction-surveys": {
+    title: "Pre-construction Surveys",
+    category: "UAV Photogrammetry",
+    heroDesc: "Capturing comprehensive site data before the commencement of works.",
+    details: "The success of a project depends on its starting data. We use UAV technology to capture a comprehensive digital baseline of your site before work begins, providing designers and contractors with high-accuracy maps of existing site conditions.",
+    features: [
+      { label: "Baseline Mapping", desc: "Creating a digital twin of the site before disruption." },
+      { label: "Constraint Identification", desc: "Identifying access and terrain challenges early." },
+      { label: "Condition Reporting", desc: "Documenting the site for legal and planning records." }
+    ],
+    image: photogrammetryUAV,
+    specs: [ { label: "Format", val: "CAD / GIS / Point Cloud" }, { label: "Status", val: "Site Baseline Certified" } ]
   }
 };
 
@@ -212,33 +265,33 @@ const ServiceDetail = () => {
   return (
     <div className="bg-white">
       {/* 1. Hero Section - Same design as Services Page */}
-      <section className="relative pt-20 sm:pt-24 px-4 lg:px-6">
-        <div className="relative w-full max-w-[95%] mx-auto h-[280px] sm:h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[80px] sm:rounded-br-[150px] shadow-2xl shadow-slate-200">
+      <section className="relative pt-16 sm:pt-20 md:pt-24 px-4 lg:px-6">
+        <div className="relative w-full max-w-[95%] mx-auto h-[250px] sm:h-[180px] md:h-[220px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[80px] sm:rounded-br-[120px] lg:rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={data.image} alt={data.title} className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/30 to-transparent"></div>
+            <img src={data.image} alt={data.title} className="w-full h-full object-cover object-center" loading="eager" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-900/50"></div>
           </div>
           
-          <div className="relative z-10 h-full flex items-center px-5 sm:px-8 lg:px-12">
-            <div className="max-w-3xl space-y-4 sm:space-y-6">
-                <h1 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-primary font-bold">{data.title}</h1>
+          <div className="relative z-10 h-full flex items-end pb-8 sm:pb-6 md:pb-8 px-3 sm:px-4 md:px-6 lg:px-12 lg:items-center lg:pb-4">
+            <div className="max-w-full sm:max-w-md md:max-w-lg lg:max-w-2xl space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+                <h1 className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.3em] text-primary font-bold">{data.title}</h1>
 
               <motion.p 
                 initial="hidden" animate="visible" transition={{ delay: 0.2 }} variants={fadeIn}
-                className="text-white text-xs sm:text-base md:text-xl font-semibold leading-relaxed drop-shadow-md max-w-2xl"
+                className="text-white text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-xl font-semibold leading-tight sm:leading-relaxed drop-shadow-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl"
               >
                 {data.heroDesc}
               </motion.p>
 
               <motion.div
                 initial="hidden" animate="visible" transition={{ delay: 0.3 }} variants={fadeIn}
-                className="flex justify-start pt-2"
+                className="flex justify-start pt-0 sm:pt-1 md:pt-2 lg:pt-2"
               >
                 <button 
                   onClick={() => document.getElementById('service-details-content')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group relative bg-primary text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-xl font-bold text-[10px] sm:text-xs tracking-widest uppercase hover:opacity-90 transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-primary/25 overflow-hidden"
+                  className="group relative bg-primary text-white px-2 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-bold text-[5px] sm:text-[6px] md:text-[8px] lg:text-[10px] tracking-widest uppercase hover:opacity-90 transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-primary/25 overflow-hidden"
                 >
-                  <span className="relative z-10">Read More</span>
+                  <span className="relative z-10 whitespace-nowrap">Read More</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
                 </button>
               </motion.div>

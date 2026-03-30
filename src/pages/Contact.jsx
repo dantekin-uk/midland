@@ -66,19 +66,19 @@ const Contact = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative pt-24 px-4 lg:px-6">
-        <div className="relative w-full max-w-[95%] mx-auto h-[260px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[150px] shadow-2xl shadow-slate-200">
+      <section className="relative pt-16 sm:pt-20 md:pt-24 px-4 lg:px-6">
+        <div className="relative w-full max-w-[95%] mx-auto h-[250px] sm:h-[180px] md:h-[220px] lg:h-[300px] overflow-hidden rounded-2xl rounded-br-[80px] sm:rounded-br-[120px] lg:rounded-br-[150px] shadow-2xl shadow-slate-200">
           <div className="absolute inset-0">
-            <img src={data} alt="Contact Us" className="w-full h-full object-cover" loading="eager" /> {/* Hero image loads eagerly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
+            <img src={data} alt="Contact Us" className="w-full h-full object-cover object-center" loading="eager" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-900/50"></div>
           </div>
           
-          <div className="relative z-10 h-full flex items-center px-6 lg:px-12">
-            <div className="max-w-3xl space-y-6">
-              <h1 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-primary font-bold">Connect</h1>
+          <div className="relative z-10 h-full flex items-end pb-8 sm:pb-6 md:pb-8 px-3 sm:px-4 md:px-6 lg:px-12 lg:items-center lg:pb-4">
+            <div className="max-w-full sm:max-w-md md:max-w-lg lg:max-w-2xl space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+              <h1 className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.3em] text-primary font-bold">Connect</h1>
               <motion.h2 
                 initial="hidden" animate="visible" transition={{ delay: 0.1 }} variants={fadeIn}
-                className="text-white text-2xl md:text-4xl font-black tracking-tighter leading-tight drop-shadow-md"
+                className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black tracking-tighter leading-tight drop-shadow-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl"
               >
                 Technical Inquiries & <br />
                 <span className="text-white/70">Project Consultations.</span>

@@ -4,30 +4,34 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const serviceCategories = [
   {
-    title: "Cadastral & Legal Surveying",
+    title: "Land Surveying",
     items: [
-      { name: "Boundary Definition", slug: "boundary-definition" },
-      { name: "Land Subdivisions", slug: "land-subdivisions" },
-      { name: "Title Deed Processing", slug: "title-deed-processing" },
-      { name: "Dispute Resolution", slug: "dispute-resolution" }
+      { name: "Land Subdivision", slug: "land-subdivision" },
+      { name: "Land Amalgamation", slug: "land-amalgamation" },
+      { name: "Sectional Properties Survey", slug: "sectional-properties-survey" },
+      { name: "Boundary Re-establishment (RIM)", slug: "boundary-re-establishment" },
+      { name: "Land Acquisition & Expert Witness", slug: "land-acquisition-expert-witness" },
+      { name: "Due Diligence & Verification", slug: "due-diligence-verification" }
     ]
   },
   {
-    title: "Engineering & Infrastructure",
+    title: "Engineering Surveying",
     items: [
-      { name: "Construction Setting Out", slug: "construction-setting-out" },
-      { name: "As-Built Surveys", slug: "as-built-surveys" },
-      { name: "Earthworks & Volumes", slug: "earthworks-computation" },
-      { name: "Road & Pipeline Profiling", slug: "road-pipeline-profiling" }
-    ]
-  },
-  {
-    title: "Topographical & Photogrammetry",
-    items: [
-      { name: "UAV Photogrammetry", slug: "uav-photogrammetry" },
+      { name: "Geodetic Control Networks", slug: "geodetic-control-networks" },
       { name: "Topographic Surveys", slug: "topographic-surveys" },
-      { name: "3D Terrain Modeling", slug: "3d-terrain-modeling" },
-      { name: "GIS Data Management", slug: "gis-data-management" }
+      { name: "Civil & Construction Set-out", slug: "civil-construction-setout" },
+      { name: "As-Constructed Surveys", slug: "as-constructed-surveys" },
+      { name: "Monitoring & Volume Surveys", slug: "monitoring-volume-surveys" }
+    ]
+  },
+  {
+    title: "UAV Photogrammetry",
+    items: [
+      { name: "High-Resolution Orthomosaics", slug: "high-resolution-orthomosaics" },
+      { name: "Mine & Quarry Volumes", slug: "mine-quarry-volumes" },
+      { name: "Construction Progress Monitoring", slug: "construction-progress-monitoring" },
+      { name: "Environmental Compliance", slug: "environmental-compliance" },
+      { name: "Pre-construction Surveys", slug: "pre-construction-surveys" }
     ]
   }
 ]
