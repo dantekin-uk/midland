@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import surveying from '../assets/services/ser1.jpg'
-import photogrammetry from '../assets/services/ser3.jpg'
+import photogrammetry from '../assets/services/ser.jpeg'
 import image from '../assets/services/proj1.jpg' 
 import { i } from 'framer-motion/client'
 
@@ -25,19 +25,19 @@ const itemVariants = {
 const services = [
   {
     title: "Professional Land Surveying Services",
-    desc: " Land subdivision, amalgamation, and sectional properties. Professional RIM boundary re-establishment and pre-purchase due diligence.",
+    desc: "Land subdivision, land amalgamation, sectional properties survey, boundary definition and re-establishment, land acquisition and expert witness advice, and due diligence survey/pre-purchase verification.",
     image: surveying,
     link: "/services#cadastral"
   },
   {
-    title: "Engineering Surveying",
-    desc: "Precision geodetic networks, topographic surveys, and civil set-outs for buildings, bridges, and road infrastructure.",
+    title: "Engineering Survey",
+    desc: "Geodetic survey control networks, topographic survey, civil set out, as constructed surveys, monitoring surveys, volume surveys, and construction set out surveys.",
     image: image,
     link: "/services#engineering"
   },
   {
     title: "UAV Photogrammetry",
-    desc: "High-resolution orthomosaics and mine volume analysis using state-of-the-art UAV technology for construction progress monitoring.",
+    desc: "Generation of high-resolution orthomosaics, mine and quarry monthly volumes, construction progress monitoring and quality assurance, environmental compliance, and preconstruction condition surveys.",
     image: photogrammetry,
     link: "/services#photogrammetry"
   }

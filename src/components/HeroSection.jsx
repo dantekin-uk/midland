@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import StatsDock from './StatsDock'
-import hero1 from '../assets/hero/hero1.jpg'
+import hero1 from '../assets/hero/hero1.jpeg'
 import hero2 from '../assets/hero/hero2.jpg'
 import hero3 from '../assets/hero/hero3.jpg'
 
@@ -12,20 +12,14 @@ const slides = [
   {
     src: hero1,
     title: 'Land & Engineering Survey',
-    line:
-      'Boundaries, topo, and construction set-out surveying that locks legal parcels and civil works to accurate coordinates on the ground.',
   },
   {
     src: hero2,
     title: 'Spatial data for Engineering & planning',
-    line:
-      'Orthomosaics, surfaces, and measurements from aerial and field capture data your engineers and planners can design to, quantify, and monitor.',
   },
   {
     src: hero3,
     title: 'GIS, Remote Sensing, Cartography and Mapping',
-    line:
-      'Satellite and aerial intelligence, GIS analysis, and publication ready maps turning complex geography into clarity for strategy, compliance, and stakeholders.',
   },
 ]
 
@@ -75,12 +69,9 @@ const HeroSection = () => {
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold tracking-tight text-slate-950 leading-snug">
+                  <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-slate-950 leading-snug">
                     <span className="text-primary">{slide.title}</span>
                   </h1>
-                  <p className="mt-2 sm:mt-2 md:mt-3 max-w-prose text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg leading-[1.4] sm:leading-[1.5] md:leading-[1.6] text-slate-900 font-semibold">
-                    {slide.line}
-                  </p>
                 </motion.div>
               </AnimatePresence>
 

@@ -42,36 +42,35 @@ const Services = () => {
       title: "Professional Land Surveying Services",
       description: "Our Professional Land Surveying Services provide strategic solutions for land tenure and development. We specialize in the precise parceling, merging, and legal verification of land to ensure full compliance with the Registry Index Map (RIM). From investigating the legal status of a property to providing expert witness representation in land disputes, we offer comprehensive services to protect your investment and facilitate seamless residential, commercial, or agricultural growth.",
       options: [
-        { title: "Land Subdivision", desc: "Strategic parceling of land for residential, commercial, or agricultural development.", image: subdivision, path: "/services/land-subdivision" },
-        { title: "Land Amalgamation", desc: "Merging adjacent parcels into a single, legally recognized title.", image: boundary, path: "/services/land-amalgamation" },
-        { title: "Sectional Properties Survey", desc: "Division of buildings into units to be owned by individual proprietors and common property to be owned by proprietors of the units as tenants in common.", image: titledeed, path: "/services/sectional-properties-survey" },
-        { title: "Boundary Re-establishment (RIM)", desc: "Placing of boundaries as per the RIM to indicate its accurate ground location to avoid boundary disputes.", image: boundary, path: "/services/boundary-re-establishment" },
-        { title: "Land Acquisition & Expert Witness", desc: "Providing expert witness representation on land acquisition, land disputes and land value negotiations.", image: dispute, path: "/services/land-acquisition-expert-witness" },
-        { title: "Due Diligence & Pre-purchase Verification", desc: "Investigating the legal status of a property, including title ownership searches, zoning regulations, and encroachment verifications.", image: documentation, path: "/services/due-diligence-verification" }
+        { title: "Land Amalgamation", image: boundary },
+        { title: "Sectional Properties Survey", image: titledeed },
+        { title: "Boundary Re-establishment", image: boundary },
+        { title: "Land Acquisition & Expert Witness", image: dispute },
+        { title: "Due Diligence Survey", image: documentation }
       ]
     },
     {
       id: "engineering",
-      title: "Engineering Surveying",
-      description: "From civil set-outs for residential developments to monitoring and volume surveys, and construction set-outs for diverse infrastructures, our engineering surveying service ensures accuracy and reliability across various projects. We establish high-precision networks and map existing site conditions to provide the foundational data required for complex civil and structural engineering works.",
+      title: "Engineering Survey",
+      description: "From civil set-outs for residential developments to monitoring and volume surveys, and construction set-outs for diverse infrastructures, our engineering surveying service ensures accuracy and reliability across various projects.",
       options: [
-        { title: "Geodetic Control Networks", desc: "Establishing high-accuracy spatial frameworks for large-scale projects.", image: engineering, path: "/services/geodetic-control-networks" },
-        { title: "Topographic Surveys", desc: "Mapping existing conditions of a site to inform design and planning.", image: topography, path: "/services/topographic-surveys" },
-        { title: "Civil & Construction Set-out", desc: "Precision marking for residential subdivisions, including earthworks, services, and kerb and channel.", image: engineering, path: "/services/civil-construction-setout" },
-        { title: "As-Constructed Surveys", desc: "Final mapping and verification of completed infrastructure.", image: documentation, path: "/services/as-constructed-surveys" },
-        { title: "Monitoring & Volume Surveys", desc: "Precise tracking of structural movement and earthwork quantities.", image: data, path: "/services/monitoring-volume-surveys" }
+        { title: "Geodetic Control Networks", image: engineering },
+        { title: "Topographic Surveys", image: topography },
+        { title: "Civil Set-out", image: engineering },
+        { title: "As-Constructed Surveys", image: documentation },
+        { title: "Monitoring & Volume Surveys", image: data }
       ]
     },
     {
       id: "photogrammetry",
       title: "UAV Photogrammetry",
-      description: "We deliver geospatial and photogrammetry solutions through our state-of-the-art UAV technology paired with an extensive array of sensors operated by our experienced team. Our surveyors and photogrammetrists understand local regulations, environmental conditions, and project requirements across urban development, agriculture, mining, and environmental monitoring to deliver high-resolution spatial data.",
+      description: "We deliver geospatial and photogrammetry solutions through our state-of-the-art UAV technology paired with an extensive array of sensors operated by our experienced team. Our surveyors and photogrammetrists understand local regulations, environmental conditions and project requirements across urban development, agriculture, mining and environmental monitoring.",
       options: [
-        { title: "High-Resolution Orthomosaics", desc: "Creating measurable, distortion-free aerial maps.", image: photogrammetry, path: "/services/high-resolution-orthomosaics" },
-        { title: "Mine & Quarry Volumes", desc: "Rapid and accurate volumetric analysis for resource extraction sites.", image: modeling, path: "/services/mine-quarry-volumes" },
-        { title: "Construction Progress Monitoring", desc: "High-detail quality assurance and progress tracking throughout the project lifecycle.", image: engineering, path: "/services/construction-progress-monitoring" },
-        { title: "Environmental Compliance", desc: "Monitoring land use and ecological impact using advanced aerial sensors.", image: data, path: "/services/environmental-compliance" },
-        { title: "Pre-construction Surveys", desc: "Capturing comprehensive site data before the commencement of physical works.", image: photogrammetry, path: "/services/pre-construction-surveys" }
+        { title: "High-Resolution Orthomosaics", image: photogrammetry },
+        { title: "Mine & Quarry Volumes", image: modeling },
+        { title: "Construction Progress Monitoring", image: engineering },
+        { title: "Environmental Compliance", image: data },
+        { title: "Pre-construction Surveys", image: photogrammetry }
       ]
     }
   ];
@@ -170,36 +169,29 @@ const Services = () => {
           <AnimatePresence mode="wait">
             {searchQuery ? (
               /* Search Results Grid */
-              <motion.div 
+              <motion.div
                 key="search-results"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
               >
-                {serviceCategories.flatMap(cat => cat.options).filter(opt => 
-                  opt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                  opt.desc.toLowerCase().includes(searchQuery.toLowerCase())
+                {serviceCategories.flatMap(cat => cat.options).filter(opt =>
+                  opt.title.toLowerCase().includes(searchQuery.toLowerCase())
                 ).length > 0 ? (
-                  serviceCategories.flatMap(cat => cat.options).filter(opt => 
-                    opt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                    opt.desc.toLowerCase().includes(searchQuery.toLowerCase())
+                  serviceCategories.flatMap(cat => cat.options).filter(opt =>
+                    opt.title.toLowerCase().includes(searchQuery.toLowerCase())
                   ).map((option, idx) => (
                     <div key={idx}>
-                      <Link to={option.path} className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
-                        <div className="h-40 overflow-hidden relative">
-                          <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" /> {/* Lazy load for service option images */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      <div className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
+                        <div className="h-48 overflow-hidden relative">
+                          <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                         </div>
-                        <div className="p-8 space-y-3">
-                          <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors">{option.title}</h4>
-                          <p className="text-slate-600 text-xs leading-relaxed font-medium">{option.desc}</p>
-                          <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest pt-2">
-                            <span>View Details</span>
-                            <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                          </div>
+                        <div className="p-8 flex items-center justify-center min-h-[120px]">
+                          <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors text-center">{option.title}</h4>
                         </div>
-                      </Link>
+                      </div>
                     </div>
                   ))
                 ) : (
@@ -258,20 +250,15 @@ const Services = () => {
                         transition={{ delay: optIdx * 0.1 }}
                         className="min-w-[280px] sm:min-w-[320px] snap-center"
                       >
-                        <Link to={option.path} className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
-                          <div className="h-40 overflow-hidden relative">
+                        <div className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
+                          <div className="h-48 overflow-hidden relative">
                             <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                           </div>
-                          <div className="p-8 space-y-3">
-                            <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors">{option.title}</h4>
-                            <p className="text-slate-600 text-xs leading-relaxed font-medium">{option.desc}</p>
-                            <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest pt-2">
-                              <span>View Details</span>
-                              <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </div>
+                          <div className="p-8 flex items-center justify-center min-h-[120px]">
+                            <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors text-center">{option.title}</h4>
                           </div>
-                        </Link>
+                        </div>
                       </motion.div>
                     ))}
                   </div>
