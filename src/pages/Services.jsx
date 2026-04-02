@@ -183,7 +183,7 @@ const Services = () => {
                     opt.title.toLowerCase().includes(searchQuery.toLowerCase())
                   ).map((option, idx) => (
                     <div key={idx}>
-                      <div className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
+                      <Link to={`/services/${option.slug}`} className="group block h-full bg-slate-50 rounded-[2.5rem] border border-slate-100 overflow-hidden hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 transform hover:-translate-y-1">
                         <div className="h-48 overflow-hidden relative">
                           <img src={option.image} alt={option.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -191,7 +191,7 @@ const Services = () => {
                         <div className="p-8 flex items-center justify-center min-h-[120px]">
                           <h4 className="text-base font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors text-center">{option.title}</h4>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   ))
                 ) : (

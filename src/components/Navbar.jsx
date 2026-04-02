@@ -124,12 +124,12 @@ const Navbar = () => {
                       <ul className="space-y-1">
                         {category.items.map((item) => (
                           <li key={item.slug}>
-                            <Link
-                              to={`/services/${item.slug}`} 
+                            <span // Changed from Link to span to disable navigation
+                              // to={`/services/${item.slug}`} // Commented out navigation prop
                               className="text-[13px] font-bold text-steel-grey hover:text-primary hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-all duration-300 block leading-tight"
                             >
                               {item.name}
-                            </Link>
+                            </span>
                           </li>
                         ))}
                       </ul>
