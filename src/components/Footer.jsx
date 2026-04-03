@@ -5,11 +5,9 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Cadastral Surveying', href: '/services/cadastral' },
-      { name: 'Engineering Surveying', href: '/services/engineering' },
-      { name: 'Photogrammetry', href: '/services/photogrammetry' },
-      { name: 'Topographic Surveys', href: '/services' },
-      { name: 'GIS Services', href: '/services' }
+      { name: 'Professional Land Surveying', href: '/services/land-surveying' },
+      { name: 'Engineering Surveying', href: '/services/engineering-survey' },
+      { name: 'UAV Photogrammetry', href: '/services/uav-photogrammetry' }
     ],
     company: [
       { name: 'About Us', href: '/about' },

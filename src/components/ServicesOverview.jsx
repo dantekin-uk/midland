@@ -27,19 +27,19 @@ const services = [
     title: "Professional Land Surveying Services",
     desc: "Land subdivision, land amalgamation, sectional properties survey, boundary definition and re-establishment, land acquisition and expert witness advice, and due diligence survey/pre-purchase verification.",
     image: surveying,
-    link: "/services#cadastral"
+    link: "/services/land-surveying"
   },
   {
     title: "Engineering Survey",
     desc: "Geodetic survey control networks, topographic survey, civil set out, as constructed surveys, monitoring surveys, volume surveys, and construction set out surveys.",
     image: image,
-    link: "/services#engineering"
+    link: "/services/engineering-survey"
   },
   {
     title: "UAV Photogrammetry",
     desc: "Generation of high-resolution orthomosaics, mine and quarry monthly volumes, construction progress monitoring and quality assurance, environmental compliance, and preconstruction condition surveys.",
     image: photogrammetry,
-    link: "/services#photogrammetry"
+    link: "/services/uav-photogrammetry"
   }
 ]
 
@@ -47,18 +47,8 @@ const ServicesOverview = () => {
   const navigate = useNavigate();
 
   const handleServiceClick = (serviceLink) => {
-    const [path, hash] = serviceLink.split('#');
-    
-    // Navigate to services page
-    navigate(path);
-    
-    // Scroll to the specific section after page loads
-    setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 300); // Increased delay to ensure page is loaded
+    navigate(serviceLink);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   return (
     <section className="pt-10 pb-16 bg-slate-50/50 relative overflow-hidden border-y border-slate-100">

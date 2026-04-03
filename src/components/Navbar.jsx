@@ -4,35 +4,34 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const serviceCategories = [
   {
-    title: "Land Surveying",
-    items: [
-      { name: "Land Subdivision", slug: "land-subdivision" },
-      { name: "Land Amalgamation", slug: "land-amalgamation" },
-      { name: "Sectional Properties Survey", slug: "sectional-properties-survey" },
-      { name: "Boundary Re-establishment (RIM)", slug: "boundary-re-establishment" },
-      { name: "Land Acquisition & Expert Witness", slug: "land-acquisition-expert-witness" },
-      { name: "Due Diligence & Verification", slug: "due-diligence-verification" }
-    ]
+    title: "Professional Land Surveying",
+    description: "Subdivision, Amalgamation, Boundary Definition",
+    slug: "land-surveying",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    )
   },
   {
-    title: "Engineering Surveying",
-    items: [
-      { name: "Geodetic Control Networks", slug: "geodetic-control-networks" },
-      { name: "Topographic Surveys", slug: "topographic-surveys" },
-      { name: "Civil & Construction Set-out", slug: "civil-construction-setout" },
-      { name: "As-Constructed Surveys", slug: "as-constructed-surveys" },
-      { name: "Monitoring & Volume Surveys", slug: "monitoring-volume-surveys" }
-    ]
+    title: "Engineering Survey",
+    description: "Topographic, Civil Set Out, Monitoring",
+    slug: "engineering-survey",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    )
   },
   {
     title: "UAV Photogrammetry",
-    items: [
-      { name: "High-Resolution Orthomosaics", slug: "high-resolution-orthomosaics" },
-      { name: "Mine & Quarry Volumes", slug: "mine-quarry-volumes" },
-      { name: "Construction Progress Monitoring", slug: "construction-progress-monitoring" },
-      { name: "Environmental Compliance", slug: "environmental-compliance" },
-      { name: "Pre-construction Surveys", slug: "pre-construction-surveys" }
-    ]
+    description: "Orthomosaics, Volumetric Analysis, 3D Modeling",
+    slug: "uav-photogrammetry",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+      </svg>
+    )
   }
 ]
 
@@ -52,7 +51,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services', hasDropdown: true },
+    { name: 'Services', path: '#', hasDropdown: true },
     { name: 'Projects', path: '/projects' },
     { name: 'Contact', path: '/contact' },
   ]
@@ -85,6 +84,7 @@ const Navbar = () => {
                     ? 'text-primary bg-primary/5'
                     : 'text-slate-700 hover:text-primary hover:bg-slate-50'
                 }`}
+                onClick={(e) => link.hasDropdown && e.preventDefault()}
               >
                 {link.name}
                 {link.hasDropdown && (
@@ -107,40 +107,32 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
               exit={{ opacity: 0, y: 10, scale: 0.98, x: "-50%" }}
               transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-              className="hidden md:block absolute top-full left-1/2 w-[660px] z-50 pt-2"
+              className="hidden md:block absolute top-full left-1/2 w-auto z-50 pt-2"
             >
-              <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.12)] border border-slate-100/50 overflow-hidden p-6">
-                <div className="grid grid-cols-3 gap-6">
+              <div className="bg-white/95 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.12)] border border-slate-100/50 overflow-hidden p-3 min-w-[320px]">
+                <div className="flex flex-col">
                   {serviceCategories.map((category) => (
-                    <div key={category.title} className="space-y-3 text-left">
-                      <div 
-                        className="group/cat flex items-center justify-start gap-2 text-primary font-black text-[13px] uppercase tracking-[0.2em] border-b border-primary/10 pb-2"
-                      >
-                        <span>{category.title}</span>
-                        <svg className="w-3 h-3 opacity-0 -translate-x-2 group-hover/cat:opacity-100 group-hover/cat:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7-7" />
-                        </svg>
+                    <Link
+                      key={category.slug}
+                      to={`/services/${category.slug}`}
+                      className="group/cat flex items-center gap-4 px-5 py-4 rounded-3xl hover:bg-primary/5 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 group-hover/cat:bg-white flex items-center justify-center text-slate-400 group-hover/cat:text-primary transition-all duration-300 shadow-sm group-hover/cat:shadow-md">
+                        {category.icon}
                       </div>
-                      <ul className="space-y-1">
-                        {category.items.map((item) => (
-                          <li key={item.slug}>
-                            <span // Changed from Link to span to disable navigation
-                              // to={`/services/${item.slug}`} // Commented out navigation prop
-                              className="text-[13px] font-bold text-steel-grey hover:text-primary hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-all duration-300 block leading-tight"
-                            >
-                              {item.name}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover/cat:text-primary transition-colors">
+                          {category.title}
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-medium tracking-tight">
+                          {category.description}
+                        </span>
+                      </div>
+                      <svg className="w-4 h-4 ml-auto text-primary opacity-0 -translate-x-2 group-hover/cat:opacity-100 group-hover/cat:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   ))}
-                </div>
-                
-                <div className="mt-5 pt-4 border-t border-slate-50 flex items-center justify-center">
-                  <Link to="/services" className="text-[11px] font-black text-primary uppercase tracking-[0.2em] hover:underline">
-                    View All Services →
-                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -190,50 +182,26 @@ const Navbar = () => {
                     className={`block text-base font-medium tracking-wide ${
                       location.pathname === link.path || (link.hasDropdown && location.pathname.startsWith('/services')) ? 'text-white' : 'text-white/70'
                     }`}
+                    onClick={(e) => link.hasDropdown && e.preventDefault()}
                   >
                     {link.name}
                   </Link>
                   {link.hasDropdown && (
-                    <div className="pl-4 space-y-1 pb-1">
-                      {serviceCategories.map((category, idx) => (
-                        <div key={category.title} className="border-l border-white/10 ml-1">
-                          <button 
-                            onClick={() => setActiveMobileCategory(activeMobileCategory === idx ? null : idx)}
-                            className={`w-full flex items-center justify-between py-2.5 pl-4 text-xs font-semibold tracking-wide transition-colors ${activeMobileCategory === idx ? 'text-white bg-white/10 rounded-r-xl' : 'text-white/80'}`}
-                          > 
-                            <span>{category.title}</span>
-                            <svg 
-                              className={`w-3 h-3 transition-transform duration-300 ${activeMobileCategory === idx ? 'rotate-180' : ''}`} 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </button>
-                          <AnimatePresence>
-                            {activeMobileCategory === idx && (
-                              <motion.ul 
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                className="overflow-hidden space-y-1 pl-4 pb-2"
-                              >
-                                {category.items.map((item) => (
-                                  <li key={item.slug}> 
-                                    <Link 
-                                      to={`/services/${item.slug}`}
-                                      className="text-xs font-normal text-white/70 hover:text-white transition-colors block py-2 flex items-center gap-2"
-                                    >
-                                      <span className="w-1 h-1 rounded-full bg-white/30"></span>
-                                      {item.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </motion.ul>
-                            )}
-                          </AnimatePresence>
-                        </div>
+                    <div className="pl-4 space-y-3 pb-1 border-l border-white/10 ml-2">
+                      {serviceCategories.map((category) => (
+                        <Link
+                          key={category.slug}
+                          to={`/services/${category.slug}`}
+                          className="w-full flex items-center gap-4 py-2 pl-4 text-white/80 hover:text-white transition-colors group/mobile"
+                        >
+                          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 group-hover/mobile:text-primary group-hover/mobile:bg-white/10 transition-all">
+                            {category.icon}
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-[11px] font-black uppercase tracking-widest leading-none mb-1">{category.title}</span>
+                            <span className="text-[10px] text-white/40 font-medium tracking-tight">{category.description}</span>
+                          </div>
+                        </Link>
                       ))}
                     </div>
                   )}
